@@ -79,24 +79,92 @@
             color: #586069;
             line-height: 1.7;
         }
-        .coming-soon {
-            background: #f6f8fa;
-            border-left: 4px solid #0366d6;
-            padding: 20px 25px;
-            margin: 30px 0;
-            border-radius: 0 6px 6px 0;
+        
+        /* Blog Post Cards */
+        .posts-section {
+            margin-top: 40px;
         }
-        .coming-soon h3 {
-            margin: 0 0 10px 0;
-            font-size: 16px;
+        .posts-section h2 {
+            font-size: 20px;
             font-weight: 600;
+            margin: 0 0 25px 0;
             color: #24292e;
         }
-        .coming-soon p {
-            margin: 0;
-            color: #586069;
-            font-size: 14px;
+        .post-card {
+            display: block;
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            margin-bottom: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+        .post-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #f6f8fa;
+        }
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .post-card:hover .post-image img {
+            transform: scale(1.03);
+        }
+        .post-content {
+            padding: 20px;
+        }
+        .post-date {
+            font-size: 13px;
+            color: #586069;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: #24292e;
+            line-height: 1.3;
+        }
+        .post-excerpt {
+            font-size: 15px;
+            color: #586069;
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+        .post-tags {
+            margin-bottom: 12px;
+        }
+        .post-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #f6f8fa;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #586069;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        .read-more {
+            font-size: 14px;
+            color: #0366d6;
+            font-weight: 500;
+        }
+        .post-card:hover .read-more {
+            text-decoration: underline;
+        }
+        
         footer {
             margin-top: 60px;
             padding-top: 30px;
@@ -123,6 +191,9 @@
                 display: block;
                 margin: 8px 0;
             }
+            .post-image {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -146,15 +217,33 @@
             </p>
         </section>
         
-        <main>
-            <div class="coming-soon">
-                <h3>🚧 Posts Coming Soon</h3>
-                <p>I'm currently working on my first posts. Topics will include paper reviews, deep dives into ML concepts, and notes from courses I'm taking. Check back soon!</p>
-            </div>
+        <main class="posts-section">
+            <h2>Latest Posts</h2>
+            
+            <!-- Gradient Descent Blog Post -->
+            <a href="blog_gradient_descent.html" class="post-card">
+                <div class="post-image">
+                    <img src="images/blog/gradient_descent_cover.png" alt="Gradient Descent Optimization Paths">
+                </div>
+                <div class="post-content">
+                    <span class="post-date">November 2025</span>
+                    <h3 class="post-title">Why Gradient Descent Gets Stuck</h3>
+                    <p class="post-excerpt">A review of Emiola & Adem's comparison of minimization methods, and what I learned implementing these algorithms for my Numerical Algorithms coursework at Warwick.</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Optimization</span>
+                        <span class="post-tag">Machine Learning</span>
+                        <span class="post-tag">MSc Coursework</span>
+                    </div>
+                    <span class="read-more">Read article →</span>
+                </div>
+            </a>
+            
+            <!-- Add more posts here as you write them -->
+            
         </main>
         
         <footer>
-            <p>© 2026 Rameez Raja · <a href="index.html">Portfolio</a> · <a href="cv.html">CV</a> · <a href="https://linkedin.com/in/rameezraja">LinkedIn</a></p>
+            <p>© 2026 Rameez Raja · <a href="index.html">Portfolio</a> · <a href="cv.html">CV</a></p>
         </footer>
     </div>
 </body>
