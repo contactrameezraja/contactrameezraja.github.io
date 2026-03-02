@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Gradient Descent Gets Stuck | Rameez Raja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #fff;
+        }
+        
+        /* Header */
+        header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #000;
+        }
+        
+        /* Hero */
+        .hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            background: #f8f9fa;
+        }
+        
+        /* Article */
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+        
+        .article-meta {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .article-meta time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 1rem 0;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #555;
+            font-weight: 400;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        /* Content */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 3rem 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        
+        figure {
+            margin: 2.5rem -2rem;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        figure img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        figcaption {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'SF Mono', Consolas, monospace;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        strong {
+            font-weight: 600;
+        }
+        
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:hover td {
+            background: #fafafa;
+        }
+        
+        /* Key takeaway */
+        .takeaway {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .takeaway h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+        
+        .takeaway p {
+            color: #ccc;
+            margin-bottom: 0;
+        }
+        
+        /* References */
+        .references {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        
+        .references h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        
+        .references p {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            color: #444;
+        }
+        
+        .references a {
+            color: #0366d6;
+        }
+        
+        /* Footer */
+        .article-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .author-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            figure {
+                margin: 2rem -1rem;
+            }
+            
+            article {
+                padding: 2rem 1rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+            <span style="color: #666; font-size: 0.9rem;">Learning Blog</span>
+        </div>
+    </header>
+    
+    <img src="images/blog/gradient_descent_cover.png" alt="Gradient Descent Optimization Paths" class="hero-image">
+    
+    <article>
+        <div class="article-meta">
+            <time>November 2025</time>
+            <h1>Why Gradient Descent Gets Stuck</h1>
+            <p class="subtitle">A review of Emiola & Adem's comparison of minimization methods, and what I learned implementing these algorithms for my Numerical Algorithms coursework at Warwick</p>
+            <div class="tags">
+                <span class="tag">Optimization</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Numerical Methods</span>
+                <span class="tag">MSc Coursework</span>
+            </div>
+        </div>
+        
+        <p class="lead">Every time you train a neural network, you are navigating a landscape. Not a physical one, but a mathematical surface where the height represents how wrong your model is. The goal is to find the lowest point. The tool is gradient descent. But here is what I discovered: the path you take matters just as much as the destination.</p>
+        
+        <h2>The Paper: Emiola & Adem (2021)</h2>
+        
+        <p>My assignment drew heavily on the work of Iyanuoluwa Emiola and Robson Adem from the University at Buffalo, whose 2021 paper <em>Comparison of Minimization Methods for Rosenbrock Functions</em> provides a systematic review of iterative optimization methods.</p>
+        
+        <p>Emiola and Adem compare three core algorithms: the Steepest Gradient Descent Method, the Newton-Raphson Method, and the Fletcher-Reeves Conjugate Gradient Method. What makes their study particularly useful is their treatment of step-size selection. They test four approaches: fixed step-size, variable step-size, quadratic-fit, and Golden Section Search.</p>
+        
+        <p>The paper uses the Rosenbrock function as a benchmark. This is a standard test problem in optimization research, known for its curved, narrow valley that exposes the weaknesses of naive gradient methods. Emiola and Adem's numerical experiments show clearly how different combinations of algorithm and step-size strategy perform on well-conditioned versus ill-conditioned variants of this function.</p>
+        
+        <div class="highlight-box">
+            <p><strong>Key finding from Emiola & Adem:</strong> A fixed step-size performs poorly when the Hessian is badly scaled or the valley is sharply curved. Line search methods like Golden Section Search significantly improve convergence, but cannot fully overcome the inherent difficulties of ill-conditioned landscapes.</p>
+        </div>
+        
+        <h2>My Assignment: Implementing and Extending</h2>
+        
+        <p>For my coursework in <strong>Numerical Algorithms and Optimization</strong> (part of the MSc in Predictive Modelling and Scientific Computing at Warwick), I was asked to implement and compare three gradient descent variants on two benchmark functions.</p>
+        
+        <p>The three methods I implemented were:</p>
+        
+        <ol>
+            <li><strong>Fixed step-size gradient descent</strong> - the simplest approach, using a constant learning rate α</li>
+            <li><strong>Golden Section Search (GSS)</strong> - at each step, perform a line search to find the optimal step-size</li>
+            <li><strong>Nesterov's accelerated gradient</strong> - add momentum to look ahead before stepping</li>
+        </ol>
+        
+        <p>The test functions were:</p>
+        
+        <p><strong>Rotated Quadratic:</strong> A simple bowl shape, but rotation and stretching (controlled by parameter b) cause the gradient to point in unhelpful directions.</p>
+        
+        <p><strong>Rosenbrock Function:</strong> The "banana function" with its curved valley. The global minimum sits at the bottom of a long, narrow ravine. Finding the valley is easy; walking along it to the minimum is painfully slow.</p>
+        
+        <h2>Results and Observations</h2>
+        
+        <p>I ran each method from different starting points, with both well-conditioned (b=1) and ill-conditioned (b=100) settings. The visualizations tell the story.</p>
+        
+        <figure>
+            <img src="images/blog/fixed_step_results.png" alt="Fixed step gradient descent results">
+            <figcaption>Fixed step-size gradient descent on the quadratic and Rosenbrock functions. The zig-zag patterns on ill-conditioned problems (b=100) match the behaviour predicted by Emiola & Adem.</figcaption>
+        </figure>
+        
+        <h3>The Zig-Zag Problem</h3>
+        
+        <p>When the problem is well-conditioned (b=1), fixed-step gradient descent works fine. The path curves smoothly toward the minimum. But with b=100, you see the classic failure mode: the algorithm bounces back and forth across a narrow valley, making tiny progress along the actual direction it needs to go.</p>
+        
+        <p>This is the <strong>condition number problem</strong>. When one direction is much steeper than another, the gradient points mostly toward the steep walls rather than along the valley floor. It is like trying to walk downhill in a narrow canyon but constantly bumping into the sides.</p>
+        
+        <figure>
+            <img src="images/blog/gss_results.png" alt="Golden Section Search results">
+            <figcaption>Golden Section Search adapts the step-size at each iteration, dramatically reducing iterations on well-conditioned problems.</figcaption>
+        </figure>
+        
+        <h3>Line Search: Better, But Not Perfect</h3>
+        
+        <p>Golden Section Search improved things significantly. By choosing the step-size optimally at each iteration, the algorithm converged in 7-10 iterations on easy problems versus 10,000+ for fixed step-size. But on Rosenbrock with b=100, it still struggled. The valley is just that curved.</p>
+        
+        <p>This matches Emiola and Adem's observation that line search methods mitigate sensitivity to curvature but cannot eliminate it entirely.</p>
+        
+        <figure>
+            <img src="images/blog/nesterov_results.png" alt="Nesterov accelerated gradient results">
+            <figcaption>Nesterov's momentum helps the optimizer slide along valleys but can overshoot on highly ill-conditioned problems.</figcaption>
+        </figure>
+        
+        <h3>Momentum: Speed vs Stability</h3>
+        
+        <p>Nesterov's method adds a look-ahead momentum term. Instead of just following the current gradient, it anticipates where you will be after the step and corrects accordingly. On the Rosenbrock function, this helped the optimizer slide along the valley floor much faster.</p>
+        
+        <p>But there is a trade-off. On highly ill-conditioned problems, the momentum can cause overshooting and oscillation. The plots show the characteristic U-shaped bouncing: the algorithm speeds up, overshoots, corrects, overshoots again.</p>
+        
+        <h2>Extensions: Constraints and Higher Dimensions</h2>
+        
+        <p>The assignment also required handling box constraints and testing on higher-dimensional problems.</p>
+        
+        <p>For constraints, I used a <strong>penalty method</strong>: add a term to the objective function that penalizes being outside the feasible region. Start with a small penalty, solve, then increase the penalty and solve again. This connects to the trust-region literature discussed by Conn, Gould & Toint (1988).</p>
+        
+        <figure>
+            <img src="images/blog/constrained_results.png" alt="Box-constrained optimization">
+            <figcaption>Box-constrained optimization using penalty methods. The blue dashed line shows the feasible region.</figcaption>
+        </figure>
+        
+        <p>For higher dimensions, I tested on the <strong>Powell function</strong> (n=4). The same patterns held: Nesterov converged fastest, GSS was most accurate, fixed step-size was reliable but slow.</p>
+        
+        <figure>
+            <img src="images/blog/powell_convergence.png" alt="Powell function convergence">
+            <figcaption>Convergence comparison on the 4-dimensional Powell function. Nesterov (green) reaches low function values fastest.</figcaption>
+        </figure>
+        
+        <h2>Connecting Theory to Practice</h2>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Concept from Assignment</th>
+                <th>What It Means for ML</th>
+            </tr>
+            <tr>
+                <td>Ill-conditioning (high b)</td>
+                <td>Why some neural networks train slowly: the loss landscape has narrow valleys</td>
+            </tr>
+            <tr>
+                <td>Fixed step-size zig-zagging</td>
+                <td>Why learning rate tuning matters so much</td>
+            </tr>
+            <tr>
+                <td>Line search adaptation</td>
+                <td>Why adaptive optimizers (Adam, RMSprop) often outperform vanilla SGD</td>
+            </tr>
+            <tr>
+                <td>Momentum overshooting</td>
+                <td>Why momentum hyperparameters need tuning, especially near convergence</td>
+            </tr>
+            <tr>
+                <td>Penalty methods</td>
+                <td>Foundation for regularization (L1/L2) and constrained optimization in ML</td>
+            </tr>
+        </table>
+        
+        <div class="takeaway">
+            <h3>Key Takeaway</h3>
+            <p>Modern optimizers like Adam combine adaptive learning rates (like line search) with momentum (like Nesterov) precisely because neither alone handles all the pathologies of real loss landscapes. Understanding why these methods exist changed how I think about hyperparameter tuning.</p>
+        </div>
+        
+        <h2>The Numbers</h2>
+        
+        <p>Final results across methods (iterations to converge on Rosenbrock, b=100):</p>
+        
+        <ul>
+            <li><strong>Fixed step-size (α=0.001):</strong> ~9,000 iterations</li>
+            <li><strong>Golden Section Search:</strong> ~1,200 iterations</li>
+            <li><strong>Nesterov (α=0.001):</strong> ~600 iterations</li>
+        </ul>
+        
+        <p>That is a 15x speedup from fixed step-size to Nesterov on the same problem. In ML terms, that is the difference between a training run that finishes overnight and one that takes two weeks.</p>
+        
+        <h2>What I Would Explore Next</h2>
+        
+        <p>Looking back, I would investigate:</p>
+        
+        <ul>
+            <li><strong>Adaptive momentum</strong> - reducing momentum as you approach the minimum to avoid oscillation</li>
+            <li><strong>Second-order methods</strong> - using curvature information (Hessian) to pick better directions, as Emiola & Adem do with Newton-Raphson</li>
+            <li><strong>Stochastic variants</strong> - how these methods change when you only see noisy gradient estimates</li>
+        </ul>
+        
+        <p>But for a first deep dive into optimization, this assignment gave me something textbooks could not: intuition. I have seen the zig-zags. I have watched momentum overshoot. Now when I tune a learning rate or pick an optimizer, I have a mental model of what is actually happening.</p>
+        
+        <p>And that is the point, is it not? Not just to get the right answer, but to understand why.</p>
+        
+        <div class="references">
+            <h3>References</h3>
+            <p>Emiola, I. & Adem, R. (2021). <em>Comparison of Minimization Methods for Rosenbrock Functions</em>. arXiv:2101.10546. <a href="https://arxiv.org/abs/2101.10546" target="_blank">https://arxiv.org/abs/2101.10546</a></p>
+            <p>Conn, A.R., Gould, N.I.M. & Toint, P.L. (1988). <em>Trust-Region Methods</em>. SIAM.</p>
+            <p>Nesterov, Y. (1983). A method for unconstrained convex minimization problem with the rate of convergence O(1/k²). <em>Doklady AN USSR</em>, 269, 543-547.</p>
+        </div>
+        
+        <div class="article-footer">
+            <div class="author-card">
+                <div class="author-info">
+                    <h4>Rameez Raja</h4>
+                    <p>Building data engineering and ML pipelines. Storyteller and designer.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
