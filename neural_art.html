@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neural</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;background:#0A0814}
+canvas{display:block}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H, strands, signals, time;
+
+function resize() {
+  W = canvas.width = window.innerWidth * 2;
+  H = canvas.height = window.innerHeight * 2;
+  canvas.style.width = window.innerWidth + 'px';
+  canvas.style.height = window.innerHeight + 'px';
+  build();
+}
+
+// Seeded random
+let seed = 91;
+function rand() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+function gauss() { return (rand() + rand() + rand() - 1.5) / 1.5; }
+
+// Palette: deep indigo base, electric violet, hot magenta, bright cyan, white-hot
+const fibers = [
+  '#1A1030','#201440','#281850','#1E1238','#241648',
+  '#301860','#381C70','#2A1650','#321A5A','#3A2068',
+  '#401878','#4A2088','#3C1C6A','#481E80','#502490',
+  '#280E48','#1C0A38','#341458','#2E1250','#3E1A68',
+];
+const accents = [
+  '#D020A0','#E030B0','#C018A0','#E840C0','#F050D0', // hot magenta/pink
+  '#8030E0','#9040F0','#7028D0','#A050FF','#B060FF', // electric violet
+  '#20D0E0','#30E0F0','#18C0D0','#40E8F0','#50F0FF', // bright cyan
+];
+const hotColors = [
+  '#FF60D0','#FF80E0','#E040C0','#FF50C8', // magenta hot
+  '#A060FF','#B080FF','#8040F0',             // violet hot
+  '#40F0FF','#60F8FF','#20E0F0',             // cyan hot
+  '#FFFFFF','#F0E0FF','#E0F0FF',             // white-hot
+];
+
+function pickFiber() { return fibers[Math.floor(rand() * fibers.length)]; }
+function pickAccent() { return accents[Math.floor(rand() * accents.length)]; }
+function pickHot() { return hotColors[Math.floor(rand() * hotColors.length)]; }
+
+function build() {
+  seed = 91;
+  strands = [];
+  signals = [];
+  time = 0;
+
+  const count = Math.floor(W / 2.2);
+
+  for (let i = 0; i < count; i++) {
+    const x = (i / count) * W + gauss() * 2;
+    const baseW = 1 + rand() * 5;
+    const segCount = 8 + Math.floor(rand() * 16);
+    const segs = [];
+
+    for (let s = 0; s < segCount; s++) {
+      const yStart = (s / segCount) * H;
+      const yEnd = ((s + 0.95 + rand() * 0.1) / segCount) * H;
+      segs.push({
+        yStart,
+        yEnd,
+        color: pickFiber(),
+        width: baseW * (0.5 + rand() * 1.0),
+        xDrift: gauss() * 1.5,
+        opacity: 0.4 + rand() * 0.6,
+      });
+    }
+
+    // Accent marks scattered along strand
+    const marks = [];
+    const mc = 2 + Math.floor(rand() * 8);
+    for (let m = 0; m < mc; m++) {
+      const isCyan = rand() < 0.2;
+      marks.push({
+        y: rand() * H,
+        color: isCyan ? accents[10 + Math.floor(rand() * 5)] : pickAccent(),
+        size: 1 + rand() * 3,
+        type: rand() < 0.4 ? 'dot' : rand() < 0.7 ? 'dash' : 'hatch',
+        opacity: 0.3 + rand() * 0.5,
+      });
+    }
+
+    strands.push({ x, baseW, segs, marks });
+  }
+}
+
+function spawnSignal() {
+  if (!strands || strands.length === 0) return;
+  const si = Math.floor(Math.random() * strands.length);
+  const s = strands[si];
+  if (!s) return;
+  const color = pickHot();
+  const isCyan = color.includes('F0') && color.includes('0');
+  signals.push({
+    x: s.x,
+    y: -30 - Math.random() * 200,
+    speed: 2 + Math.random() * 5,
+    length: 60 + Math.random() * 180,
+    width: s.baseW * (0.6 + Math.random() * 0.8),
+    color,
+    opacity: 0.4 + Math.random() * 0.4,
+    glowSize: 3 + Math.random() * 6,
+    // Branching: some signals will fork sideways
+    branch: Math.random() < 0.15,
+    branchX: s.x + (Math.random() - 0.5) * 80,
+    branchY: Math.random() * H * 0.6 + H * 0.2,
+  });
+}
+
+function drawBackground() {
+  // Deep indigo gradient
+  const g = ctx.createLinearGradient(0, 0, 0, H);
+  g.addColorStop(0, '#08060F');
+  g.addColorStop(0.5, '#0C0A18');
+  g.addColorStop(1, '#0A0814');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function drawStrands() {
+  for (let i = 0; i < strands.length; i++) {
+    const strand = strands[i];
+    for (let j = 0; j < strand.segs.length; j++) {
+      const seg = strand.segs[j];
+      ctx.beginPath();
+      ctx.moveTo(strand.x + seg.xDrift, seg.yStart);
+      ctx.lineTo(strand.x + seg.xDrift + gauss() * 0.3, seg.yEnd);
+      ctx.strokeStyle = seg.color;
+      ctx.globalAlpha = seg.opacity;
+      ctx.lineWidth = seg.width;
+      ctx.lineCap = 'butt';
+      ctx.stroke();
+    }
+
+    // Marks
+    for (let j = 0; j < strand.marks.length; j++) {
+      const mark = strand.marks[j];
+      ctx.globalAlpha = mark.opacity;
+      if (mark.type === 'dot') {
+        ctx.beginPath();
+        ctx.arc(strand.x + gauss() * 2, mark.y, mark.size, 0, Math.PI * 2);
+        ctx.fillStyle = mark.color;
+        ctx.fill();
+      } else if (mark.type === 'dash') {
+        ctx.beginPath();
+        ctx.moveTo(strand.x - mark.size * 2, mark.y);
+        ctx.lineTo(strand.x + mark.size * 2, mark.y + 1);
+        ctx.strokeStyle = mark.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      } else {
+        // Hatch
+        for (let h = 0; h < 3; h++) {
+          ctx.beginPath();
+          ctx.moveTo(strand.x - 2, mark.y + h * 3);
+          ctx.lineTo(strand.x + 3, mark.y + h * 3 - 2);
+          ctx.strokeStyle = mark.color;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+function drawSignals() {
+  for (let i = 0; i < signals.length; i++) {
+    const sig = signals[i];
+
+    // Wide soft glow
+    const glow = ctx.createLinearGradient(sig.x, sig.y, sig.x, sig.y + sig.length);
+    glow.addColorStop(0, 'transparent');
+    glow.addColorStop(0.3, sig.color);
+    glow.addColorStop(0.7, sig.color);
+    glow.addColorStop(1, 'transparent');
+
+    ctx.beginPath();
+    ctx.moveTo(sig.x, sig.y);
+    ctx.lineTo(sig.x, sig.y + sig.length);
+    ctx.strokeStyle = sig.color;
+    ctx.globalAlpha = sig.opacity * 0.12;
+    ctx.lineWidth = sig.width * sig.glowSize;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Core bright line
+    ctx.beginPath();
+    ctx.moveTo(sig.x, sig.y);
+    ctx.lineTo(sig.x, sig.y + sig.length);
+    ctx.strokeStyle = glow;
+    ctx.globalAlpha = sig.opacity;
+    ctx.lineWidth = sig.width;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // Hot center
+    ctx.beginPath();
+    ctx.moveTo(sig.x, sig.y + sig.length * 0.3);
+    ctx.lineTo(sig.x, sig.y + sig.length * 0.7);
+    ctx.strokeStyle = '#fff';
+    ctx.globalAlpha = sig.opacity * 0.3;
+    ctx.lineWidth = sig.width * 0.4;
+    ctx.stroke();
+
+    // Branch connection
+    if (sig.branch && sig.y + sig.length > sig.branchY && sig.y < sig.branchY) {
+      ctx.beginPath();
+      ctx.moveTo(sig.x, sig.branchY);
+      const cpx = (sig.x + sig.branchX) / 2;
+      const cpy = sig.branchY - 20 + Math.random() * 10;
+      ctx.quadraticCurveTo(cpx, cpy, sig.branchX, sig.branchY + 30);
+      ctx.strokeStyle = sig.color;
+      ctx.globalAlpha = sig.opacity * 0.25;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Small node at branch point
+      ctx.beginPath();
+      ctx.arc(sig.x, sig.branchY, 2, 0, Math.PI * 2);
+      ctx.fillStyle = sig.color;
+      ctx.globalAlpha = sig.opacity * 0.6;
+      ctx.fill();
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+function update() {
+  // Move signals down
+  for (let i = signals.length - 1; i >= 0; i--) {
+    signals[i].y += signals[i].speed;
+    if (signals[i].y > H + 100) signals.splice(i, 1);
+  }
+
+  // Spawn new ones
+  const r = Math.random;
+  if (r() < 0.5) spawnSignal();
+  if (r() < 0.25) spawnSignal();
+  if (r() < 0.1) spawnSignal();
+  if (r() < 0.03) { spawnSignal(); spawnSignal(); spawnSignal(); } // burst
+}
+
+function loop() {
+  requestAnimationFrame(loop);
+  time++;
+  drawBackground();
+  drawStrands();
+  update();
+  drawSignals();
+}
+
+window.addEventListener('resize', resize);
+resize();
+loop();
+</script>
+</body>
+</html>

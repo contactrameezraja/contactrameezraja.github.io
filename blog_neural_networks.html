@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neural Networks: From Assignment to Art | Rameez Raja</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 16px; line-height: 1.6; color: #24292e; background-color: #fff;
+            margin: 0; padding: 0;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-block; margin-bottom: 30px; color: #0366d6; text-decoration: none; font-size: 14px; }
+        .back-link:hover { text-decoration: underline; }
+        .blog-label { font-size: 13px; color: #586069; margin-bottom: 5px; }
+        .hero-image { width: 100%; border-radius: 8px; margin: 20px 0; }
+        .post-date { font-size: 13px; color: #586069; display: block; margin-bottom: 8px; }
+        h1 { font-size: 32px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.3; }
+        .subtitle { font-size: 17px; color: #586069; margin: 0 0 20px 0; line-height: 1.6; }
+        .post-tags { margin-bottom: 30px; }
+        .post-tag {
+            display: inline-block; padding: 3px 10px; background: #f6f8fa;
+            border-radius: 20px; font-size: 12px; color: #586069; margin-right: 6px; margin-bottom: 6px;
+        }
+        h2 { font-size: 22px; font-weight: 600; margin: 40px 0 15px 0; }
+        p { margin: 0 0 16px 0; line-height: 1.7; }
+        .animation-embed {
+            width: 100%; height: 500px; border: none; border-radius: 8px;
+            margin: 20px 0; background: #06060e;
+        }
+        .art-image {
+            width: 100%; border-radius: 8px; margin: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .caption { font-size: 13px; color: #586069; text-align: center; margin: -10px 0 25px 0; font-style: italic; }
+        footer {
+            margin-top: 60px; padding-top: 30px; border-top: 1px solid #e1e4e8;
+            text-align: center; color: #586069; font-size: 13px;
+        }
+        footer a { color: #0366d6; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            .container { padding: 20px 15px; }
+            h1 { font-size: 26px; }
+            .animation-embed { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+        <div class="blog-label">Learning Blog</div>
+
+        <img src="images/blog/neural_network_cover.png" alt="Neural Network Generative Art" class="hero-image">
+
+        <span class="post-date">March 2026</span>
+        <h1>Neural Networks: From Assignment to Art</h1>
+        <p class="subtitle">How I turned my ES98E neural networks assignment into generative art using D3 and JavaScript, and why making art from technical concepts helps me understand them</p>
+        <div class="post-tags">
+            <span class="post-tag">Neural Networks</span>
+            <span class="post-tag">Data Art</span>
+            <span class="post-tag">Scientific ML</span>
+            <span class="post-tag">ES98E</span>
+        </div>
+
+        <p>This term I took ES98E Scientific Machine Learning at Warwick and one of the assignments that stuck with me most was the one on neural networks. It covered non-linear regression, the bias-variance tradeoff and how neural networks compare to Gaussian processes when you're trying to fit models to limited data. We worked with a water molecule dataset and the whole point was to understand what happens under the hood when a network learns, how it can overfit when you give it too much freedom and how it can underfit when you don't give it enough.</p>
+
+        <p>The assignment pushed me to think about neural networks not just as tools you import and call but as actual mathematical structures with real behaviour. You change the number of hidden units or the activation function and the whole shape of the prediction shifts. You train on a small dataset and suddenly you're face to face with the bias-variance tradeoff in a way that no lecture slide ever really captures. You have to see it break to understand why it matters.</p>
+
+        <p>What I found most interesting was the comparison between neural networks and Gaussian processes. They're solving the same problem but they think about uncertainty completely differently. A GP gives you confidence intervals for free because uncertainty is baked into the model. A neural network gives you a single prediction and you have to work much harder to know how confident it is. That difference matters a lot when you're working with real-world scientific data where knowing what you don't know is just as important as knowing what you do.</p>
+
+        <h2>From code to canvas</h2>
+
+        <p>I process things through making. It's how ideas actually land for me. So after spending weeks staring at network architectures and weight matrices and loss curves I wanted to take everything I'd been learning and turn it into something visual, something that captures what it actually feels like to watch a neural network fire.</p>
+
+        <p>I built two pieces using D3 and JavaScript. The first is an animated full-screen generative artwork where hundreds of vertical fibers act as neural pathways and bright signals pulse downward through them like data moving through layers of a network. Some signals branch sideways to neighbouring strands, forming connections the way neurons form synapses. The colour palette is deep indigo and violet for the network structure with hot magenta, cyan and white-hot pulses for the signals travelling through it. It runs in your browser and you can watch it live, the network never stops firing.</p>
+
+        <iframe src="neural_art.html" class="animation-embed" title="Neural Network Animation"></iframe>
+        <p class="caption">Interactive animation. Signals pulse through neural pathways in real time.</p>
+
+        <p>The second piece is a high-resolution still version of the same concept, rendered at 4000 by 5400 pixels. Same deep purple fibers, same bright signal pulses frozen mid-flow, same branching connections and glowing node points. Six layers of painterly marks built on top of each other to create a dense texture where every inch of the canvas is covered. It's the kind of thing you could print large and hang on a wall and the closer you get the more detail you see.</p>
+
+        <img src="images/blog/neural_network_purple_framed.png" alt="Neural Network Still Art" class="art-image">
+        <p class="caption">High-resolution still. 4000 x 5400 pixels. Six layers of generative marks.</p>
+
+        <p>The idea behind both pieces is simple. A neural network is thousands of tiny connections all firing at once and the intelligence comes from the pattern, not from any single connection on its own. I wanted to make something where you could feel that density, where the image itself is built the same way a network works: lots of small simple marks that together create something complex and alive.</p>
+
+        <h2>Why this matters to me</h2>
+
+        <p>I'm a data engineer and I spend my days building pipelines and infrastructure. Learning about neural networks from a scientific machine learning perspective changed how I think about what I build because it forced me to reckon with the fact that these systems are not magic, they're maths, and the maths has limitations. The bias-variance tradeoff isn't just an exam question, it's a real thing that affects real predictions that affect real people.</p>
+
+        <p>Making art from the concepts I study is my way of making sure I actually understand them. If I can't turn an idea into something visual then I probably don't understand it well enough yet. These two pieces are my way of saying I get it, or at least I'm starting to, and I wanted to share that process because I think there's something valuable in letting technical learning breathe and take a different shape.</p>
+
+        <footer>
+            <p>&copy; 2026 Rameez Raja &middot; <a href="index.html">Portfolio</a> &middot; <a href="cv.html">CV</a> &middot; <a href="research.html">All Posts</a></p>
+        </footer>
+    </div>
+    <script data-goatcounter="https://rameezraja.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
