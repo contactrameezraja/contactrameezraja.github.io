@@ -79,8 +79,6 @@
             color: #586069;
             line-height: 1.7;
         }
-        
-        /* Blog Post Cards */
         .posts-section {
             margin-top: 40px;
         }
@@ -164,7 +162,6 @@
         .post-card:hover .read-more {
             text-decoration: underline;
         }
-        
         footer {
             margin-top: 60px;
             padding-top: 30px;
@@ -199,10 +196,10 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
         
         <header>
-            <h2 class="site-title"><a href="research.html">📚 Rameez's Log</a></h2>
+            <h2 class="site-title"><a href="research.html">&#128218; Rameez's Log</a></h2>
             <nav>
                 <a href="research.html" class="active">Posts</a>
                 <a href="#archive">Archive</a>
@@ -211,7 +208,7 @@
         </header>
         
         <section class="welcome">
-            <h1>👋 Welcome to my Research Log</h1>
+            <h1>&#128075; Welcome to my Research Log</h1>
             <p>
                 This is my learning blog where I document my journey through machine learning and NLP. I write about papers I'm reading, concepts I'm learning, ideas I'm exploring, and events I attend. Currently doing research at the University of Warwick Predictive Modelling Centre.
             </p>
@@ -219,6 +216,25 @@
         
         <main class="posts-section">
             <h2>Latest Posts</h2>
+
+            <!-- Neural Networks Blog Post -->
+            <a href="blog_neural_networks.html" class="post-card">
+                <div class="post-image">
+                    <img src="images/blog/neural_network_cover.png" alt="Neural Network Generative Art">
+                </div>
+                <div class="post-content">
+                    <span class="post-date">March 2026</span>
+                    <h3 class="post-title">Neural Networks: From Assignment to Art</h3>
+                    <p class="post-excerpt">How I turned my ES98E neural networks assignment into generative art using D3 and JavaScript, and why making art from technical concepts helps me understand them.</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Neural Networks</span>
+                        <span class="post-tag">Data Art</span>
+                        <span class="post-tag">Scientific ML</span>
+                        <span class="post-tag">ES98E</span>
+                    </div>
+                    <span class="read-more">Read article &rarr;</span>
+                </div>
+            </a>
             
             <!-- Gradient Descent Blog Post -->
             <a href="blog_gradient_descent.html" class="post-card">
@@ -228,22 +244,20 @@
                 <div class="post-content">
                     <span class="post-date">November 2025</span>
                     <h3 class="post-title">Why Gradient Descent Gets Stuck</h3>
-                    <p class="post-excerpt">A review of Emiola & Adem's comparison of minimization methods, and what I learned implementing these algorithms for my Numerical Algorithms coursework at Warwick.</p>
+                    <p class="post-excerpt">A review of Emiola &amp; Adem's comparison of minimization methods, and what I learned implementing these algorithms for my Numerical Algorithms coursework at Warwick.</p>
                     <div class="post-tags">
                         <span class="post-tag">Optimization</span>
                         <span class="post-tag">Machine Learning</span>
                         <span class="post-tag">MSc Coursework</span>
                     </div>
-                    <span class="read-more">Read article →</span>
+                    <span class="read-more">Read article &rarr;</span>
                 </div>
             </a>
-            
-            <!-- Add more posts here as you write them -->
             
         </main>
         
         <footer>
-            <p>© 2026 Rameez Raja · <a href="index.html">Portfolio</a> · <a href="cv.html">CV</a></p>
+            <p>&copy; 2026 Rameez Raja &middot; <a href="index.html">Portfolio</a> &middot; <a href="cv.html">CV</a></p>
         </footer>
     </div>
     <script data-goatcounter="https://rameezraja.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
