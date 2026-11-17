@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rameez Raja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--ink:#f2f1ec;--mute:#9a9892;--soft:#131315;--line:rgba(255,255,255,.12);--accent:#2fb8a6;--amber:#e0a44a;--bronze:#c07a3a;--silver:#b8bcc4;--gold:#e6c35a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.serif{font-family:Inter,system-ui,sans-serif;font-weight:300}
+.mono{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.arrow{display:inline-block;margin-left:4px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(10,10,11,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:inline-flex}
+.logo .mark{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1.5px solid #000;border-radius:50%;background:#fff;color:#000;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:14px;letter-spacing:-.02em;line-height:1}
+nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+nav li a{font-size:13px;color:var(--mute)}
+nav li a:hover{color:var(--ink)}
+nav li.cta a{color:var(--ink);font-weight:500;border:1px solid var(--ink);padding:8px 14px;border-radius:999px}
+nav li.ghost a{border-color:rgba(255,255,255,.35);color:var(--mute)}
+nav li.ghost a:hover{border-color:var(--ink);color:var(--ink)}
+nav ul{gap:10px}
+@media(max-width:720px){nav li a{font-size:12px}}
+
+.hero{position:relative;height:78svh;min-height:420px;overflow:hidden;background:#0a0710;padding:0}
+#vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero .credit{position:absolute;right:16px;bottom:12px;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.04em}
+.scenes{position:absolute;left:0;right:0;bottom:0;padding:0 20px 44px;pointer-events:none}
+.scard{position:absolute;left:20px;bottom:58px;width:min(560px,calc(100% - 40px));padding:22px 24px 24px;border-radius:14px;background:rgba(18,38,40,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease;pointer-events:none;font-family:Inter,system-ui,sans-serif}
+.scard.on{opacity:1;transform:none;pointer-events:auto}
+.scard .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:8px;font-weight:500}
+.scard h2.one{font-size:clamp(22px,3.6vw,36px);white-space:nowrap}
+.scard h2{font-size:clamp(28px,4.6vw,46px);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:#fff;max-width:none}
+.scard p{font-size:15px;font-weight:300;color:rgba(255,255,255,.9);margin-top:10px;max-width:46ch}
+.scard .sbtn{display:block;margin-top:18px;text-align:center;padding:13px 16px;border:1px solid rgba(255,255,255,.8);border-radius:10px;color:#fff;font-size:13px;letter-spacing:.08em;font-weight:500;transition:background .3s,color .3s}
+.scard .sbtn:hover{background:#fff;color:#000}
+.bars{position:absolute;left:20px;bottom:34px;width:min(560px,calc(100% - 40px));display:flex;gap:6px}
+.bars span{flex:1;height:3px;background:rgba(255,255,255,.3);border-radius:3px;overflow:hidden}
+.bars span i{display:block;height:100%;width:0;background:#fff;border-radius:3px}
+@media(max-width:640px){.scard h2.one{font-size:21px}.bars{left:16px;bottom:26px}.scard{left:16px;bottom:48px;padding:18px 18px 20px}.scard h2{font-size:28px}.scard p{font-size:14px}}
+.intro{padding:72px 0 64px}
+.intro .eyebrow{font-size:13px;color:var(--mute);margin-bottom:20px}
+.intro h1{font-family:Inter,system-ui,sans-serif;font-weight:300;font-size:clamp(40px,6.4vw,80px);line-height:1.02;letter-spacing:-.03em;max-width:14ch}
+.intro h1 span{color:var(--accent)}
+.intro p{font-size:clamp(16px,1.5vw,18px);font-weight:300;color:var(--mute);max-width:62ch;margin-top:22px;line-height:1.65}
+.intro p+p{margin-top:14px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;padding:13px 20px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{opacity:.85}
+
+section{padding:88px 0;border-top:1px solid var(--line)}
+.label{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.label .n{font-weight:600;font-size:13px}
+.label .t{font-size:13px;color:var(--mute)}
+h2{font-family:Inter,system-ui,sans-serif;font-weight:300;font-size:clamp(30px,4.2vw,48px);line-height:1.08;letter-spacing:-.025em;max-width:20ch}
+h2 span{color:var(--accent)}
+.sub{color:var(--mute);margin-top:14px;max-width:60ch;font-size:16px}
+
+.layer{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px;margin-top:0}
+.layer .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-bottom:16px}
+.lrow{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+.lrow .i{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mute)}
+.lrow b{display:block;font-weight:600;font-size:15px}
+.lrow small{color:var(--mute);font-size:13px}
+.lrow .a{color:var(--mute)}
+.layer .capt{margin-top:16px;font-size:13px;font-weight:500}
+
+.tabs{display:flex;gap:8px;margin-top:28px;flex-wrap:wrap}
+.story{margin-top:18px;border:1px solid var(--line);border-radius:14px;padding:22px 26px;background:var(--soft);max-width:860px}
+.story p{margin:0;font-size:16px;line-height:1.65;color:var(--mute)}
+.story p+p{margin-top:12px;color:var(--ink)}
+.story.swap{animation:storyin .5s ease}
+@keyframes storyin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tab{font:inherit;font-size:13px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mute);cursor:pointer;transition:all .25s}
+.tab:hover{border-color:rgba(255,255,255,.4);color:var(--ink)}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pipe{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:18px}
+.pipe .ends span{max-width:48%;line-height:1.4}
+.pipe .ends span:last-child{text-align:right}
+.pipe .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-bottom:14px}
+.flow{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr 28px 1fr;gap:0;align-items:stretch}
+.node{background:#0f0f11;border:1px solid var(--line);border-radius:12px;padding:14px 14px 12px;position:relative}
+.node:before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:3px;background:var(--mute)}
+.node.b:before{background:var(--bronze)}.node.s:before{background:var(--silver)}.node.g:before{background:var(--gold)}.node.out:before{background:var(--accent)}
+.node .hd{display:flex;align-items:baseline;gap:8px;margin-bottom:8px;padding-left:6px}
+.node .hd i{font-family:"JetBrains Mono",monospace;font-style:normal;font-size:11px;color:var(--mute)}
+.node .hd b{font-weight:600;font-size:15px}
+.node .hd small{color:var(--mute);font-size:12px}
+.node ul{list-style:none;padding-left:6px}
+.node li{font-size:12.5px;color:var(--mute);padding:3px 0;border-top:1px solid var(--line)}
+.node li:first-child{border-top:0}
+.link{display:flex;align-items:center}
+.link svg{width:100%;height:12px;overflow:visible}
+.link .dash{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:4 5;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-18}}
+.node{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.node.lit{opacity:1;transform:none}
+.node .cap{margin-top:10px;padding:10px 0 0 6px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--ink);opacity:0;transition:opacity .6s ease .3s}
+.node.lit .cap{opacity:1}
+.link .dash{opacity:0;transition:opacity .5s}
+.link.lit .dash{opacity:1}
+.pipe .rail{opacity:0;transition:opacity .8s ease}
+.pipe .rail.lit{opacity:1}
+.ailane{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);opacity:0;transform:translateY(8px);transition:opacity .8s ease,transform .8s ease}
+.ailane.lit{opacity:1;transform:none}
+.ailabel{font-size:12px;color:var(--mute);margin-bottom:10px}
+.aiintro{font-size:15px;line-height:1.6;color:var(--ink);max-width:760px;margin:0 0 22px}
+.aid em{font-style:normal;font-size:12px;line-height:1.5;color:var(--mute);text-align:center;opacity:.75;max-width:170px}
+@media(max-width:860px){.aid em{text-align:left}}
+.aidots{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr 28px 1fr;align-items:start;position:relative}
+.aidots:before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}
+.aid{grid-column:span 1;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative}
+.aid:nth-child(2){grid-column:3}.aid:nth-child(3){grid-column:5}.aid:nth-child(4){grid-column:7}.aid:nth-child(5){grid-column:9}
+.aid i{display:block;width:calc(var(--r)*2);height:calc(var(--r)*2);margin-top:calc(11px - var(--r));border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(47,184,166,.6);transform:scale(0);transition:transform .5s cubic-bezier(.2,.8,.2,1.2)}
+.ailane.lit .aid i{transform:scale(1)}
+.aid span{font-size:13px;color:var(--ink);text-align:center}
+.ailine{margin-top:14px;font-size:13px;color:var(--ink)}
+@media(max-width:860px){.aidots{grid-template-columns:1fr;gap:10px}.aid,.aid:nth-child(n){grid-column:auto;flex-direction:row;justify-content:flex-start}.aid i{margin-top:0}.aidots:before{display:none}}
+.pipe .rail{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px}
+.pipe .rail span{color:var(--mute)}
+.pipe .rail b{font-weight:500;margin-right:10px}
+@media(max-width:860px){.flow{grid-template-columns:1fr}.link{height:26px;justify-content:center}.link svg{width:12px;height:26px;transform:rotate(90deg)}}
+@media(prefers-reduced-motion:reduce){.link .dash{animation:none}}
+.logos{display:flex;flex-wrap:wrap;gap:10px 34px;align-items:center;margin-top:40px;color:var(--mute);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.logos span{font-weight:600}
+
+.about p{font-size:clamp(17px,1.8vw,21px);line-height:1.5;max-width:62ch;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.stats b{display:block;font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.stats small{color:var(--mute);font-size:13px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:40px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;background:var(--soft);transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(255,255,255,.35);transform:translateY(-2px)}
+.card .cat{font-size:12px;color:var(--mute)}
+.card .org{font-weight:600;font-size:13px}
+.vis{background:var(--soft);border-radius:12px;padding:16px;min-height:120px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.vis .step{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:baseline;font-size:13px}
+.vis .step i{font-family:"JetBrains Mono",monospace;font-style:normal;font-size:11px;color:var(--mute)}
+.vis .step b{font-weight:600}
+.vis .step small{color:var(--mute);margin-left:6px}
+.vis .step.b b{color:var(--bronze)}.vis .step.s b{color:var(--silver)}.vis .step.g b{color:var(--gold)}
+.vis .q{font-size:13px;font-weight:500}
+.vis .dn{text-align:center;color:var(--mute);font-size:12px}
+.card h3{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.card p{color:var(--mute);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--ink)}
+.card .lnk{margin-top:auto;font-size:13px;font-weight:500}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:40px}
+.tile{border:1px solid var(--line);border-radius:12px;padding:16px 14px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:10px;background:var(--soft)}
+.tile i{width:8px;height:8px;border-radius:2px;background:var(--accent);flex:none}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:40px}
+.xbar{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.xbar i{display:block;flex:1;height:3px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.xbar i:after{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);border-radius:3px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.reveal.in .xbar i:after{width:var(--w)}
+.xbar span{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--mute);white-space:nowrap}
+.cols h4{font-size:13px;font-weight:600;margin-bottom:10px}
+.cols ul{list-style:none}
+.cols li{font-size:14px;color:var(--mute);padding:4px 0;border-top:1px solid var(--line)}
+
+.split{display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:start;margin-top:36px}
+.split .help{margin-top:0}
+.side{position:sticky;top:96px}
+.panel{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--soft);min-height:300px;transition:border-color .3s}
+.panel.hot{border-color:rgba(47,184,166,.6)}
+.pk{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.panel ul{list-style:none;display:grid;gap:10px}
+.panel li{font-size:16px;font-weight:300;line-height:1.45;color:var(--ink);padding-left:16px;position:relative}
+.panel li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--accent)}
+.pf{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mute)}
+.panel.swap ul,.panel.swap .pk,.panel.swap .pf{animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.hrow{cursor:default;transition:opacity .25s}
+#helprows.dim .hrow{opacity:.45}#helprows.dim .hrow.on{opacity:1}
+@media(max-width:860px){.split{grid-template-columns:1fr}.side{position:static}}
+.help{margin-top:36px}
+.hrow{display:grid;grid-template-columns:60px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.hrow .i{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mute)}
+.hrow h4{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.hrow p{color:var(--mute);font-size:15px;margin-top:6px;max-width:64ch}
+
+.tl{margin-top:40px}
+.trow{display:grid;grid-template-columns:60px 160px 1fr;gap:18px;padding:26px 0;border-top:1px solid var(--line)}
+.trow .i{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mute)}
+.trow .d{font-size:13px;color:var(--mute)}
+.trow h4{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.trow .c{font-size:14px;color:var(--mute);margin-top:2px}
+.trow ul{margin-top:12px;padding-left:18px;color:var(--mute);font-size:14.5px;display:grid;gap:5px}
+.trow li::marker{color:var(--accent)}
+@media(max-width:720px){.trow{grid-template-columns:1fr;gap:6px}.trow .i{display:none}}
+
+.cred{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:36px}
+.cred h4{font-size:13px;font-weight:600;margin-bottom:10px}
+.cred li{list-style:none;font-size:14.5px;padding:8px 0;border-top:1px solid var(--line)}
+.cred li small{display:block;color:var(--mute);font-size:13px}
+.cred .soon{color:var(--amber);font-weight:500}
+
+footer{border-top:1px solid var(--line);padding:72px 0 48px;background:var(--soft)}
+footer .eyebrow{font-size:13px;color:var(--mute)}
+footer h2{margin-top:10px}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:40px;font-size:13px;color:var(--mute)}
+footer .row a{margin-right:18px;color:var(--ink);font-weight:500}
+
+#sidemenu{position:fixed;left:20px;top:50%;transform:translate(-12px,-50%);z-index:15;background:rgba(14,14,16,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:none;flex-direction:column;gap:8px;opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+#sidemenu.ok{display:flex}
+#sidemenu.show{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+#sidemenu a{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:400;white-space:nowrap;transition:color .25s}
+#sidemenu a:hover{color:var(--ink)}
+#sidemenu a.on{color:var(--ink);font-weight:600}
+body.hasmenu section .wrap,body.hasmenu footer .wrap{margin-left:max(24px,calc((100vw - 1120px)/2 + 110px))}
+#loader{position:fixed;inset:0;z-index:100;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity .9s ease,visibility .9s}
+#loader.off{opacity:0;visibility:hidden}
+#loader .mark{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#fff;color:#000;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:18px;letter-spacing:-.02em;animation:breathe 1.8s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.12);opacity:1}}
+@media(prefers-reduced-motion:reduce){#loader .mark{animation:none}}
+.strip{margin-top:44px;overflow:hidden;border-radius:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:48px;width:max-content;padding-left:0;animation:slide 160s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.quote{width:420px;max-width:80vw;flex:none}
+.quote p{font-size:19px;font-weight:300;line-height:1.45;color:var(--ink)}
+.quote p mark{background:none;color:var(--accent)}
+.quote small{display:block;margin-top:12px;color:var(--mute);font-size:12px;letter-spacing:.04em}
+@media(prefers-reduced-motion:reduce){.track{animation:none}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true"><div class="ld"><span class="mark">rr.</span></div></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="mark">rr.</span></a>
+    <nav><ul>
+            <li class="cta ghost"><a href="about.html">About me</a></li>
+            <li class="cta ghost"><a href="studio.html">Enter my data studio</a></li>
+            <li class="cta"><a href="mailto:data.rameez.raja@gmail.com?subject=Hello%20Rameez">Let's talk <span class="arrow">↗</span></a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<section class="hero" id="top" style="border-top:0">
+  <video id="vid" autoplay muted loop playsinline preload="auto" poster="poster.jpg"><source src="hero12.mp4" type="video/mp4"></video>
+  <div class="scenes">
+    <div class="scard" data-from="0" data-to="11.6">
+      <div class="eyebrow">Hey, I'm Rameez</div>
+      <h2 class="one">Problem solver × Data storyteller</h2>
+      <p>Twelve years turning messy source systems into data people trust.</p>
+      <a href="#about" class="sbtn">DISCOVER MY WORK</a>
+    </div>
+    <div class="scard" data-from="11.6" data-to="22.8">
+      <div class="eyebrow">Databricks · dbt · Unity Catalog · Snowflake</div>
+      <h2 class="one">Built it, modelled it, explained it.</h2>
+      <p>I've done the ingestion, the modelling and the analysis, so I know where numbers go wrong.</p>
+      <a href="#journey" class="sbtn">SEE THE PIPELINE</a>
+    </div>
+    <div class="scard" data-from="22.8" data-to="99">
+      <div class="eyebrow">Power BI · Genie · Automation</div>
+      <h2 class="one">Data that changes decisions.</h2>
+      <p>Trusted, timely, and in the room where decisions get made.</p>
+      <a href="mailto:data.rameez.raja@gmail.com?subject=Let%27s%20make%20data%20matter" class="sbtn">LET'S MAKE DATA MATTER TOGETHER</a>
+    </div>
+  </div>
+  <div class="bars"><span><i></i></span><span><i></i></span><span><i></i></span></div>
+</section>
+<aside id="sidemenu" aria-label="Section menu">
+  <a href="#about" data-s="about">About</a>
+  <a href="#pipeline" data-s="pipeline">The journey</a>
+  <a href="#capabilities" data-s="capabilities">Capabilities</a>
+  <a href="#support" data-s="support">Where I'm useful</a>
+  <a href="#voices" data-s="voices">What people say</a>
+  <a href="#credentials" data-s="credentials">Credentials</a>
+  <a href="#contact" data-s="contact">Get in touch</a>
+</aside>
+<section class="intro" id="about" style="border-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Rameez Raja · United Kingdom</div>
+    <h1>Messy sources in. <span>Trusted data</span> out.</h1>
+    <p>I'm a data and analytics engineer, but I started as an analyst, and that's still how I work. Before I touch a pipeline I want to know who's waiting on the number and what they'll do with it. That means sitting with the sales team in Spain, the finance team in the Netherlands, the product owner with the spreadsheet nobody dares to delete, and designing the model backwards from the decision.</p>
+    <p>The platforms I build on, Databricks, dbt, Snowflake, are just the means. The job is getting data people can trust into the room where it matters, and knowing when to push back on a number everyone already believes.</p>
+  </div>
+</section>
+
+<section id="pipeline" style="padding-top:0;border-top:0">
+  <div class="wrap">
+    <div class="label"><span class="n">[01]</span><span class="t">The Pipeline</span></div>
+    <h2 class="reveal" id="journey">What the journey looks like.</h2>
+    <p class="sub reveal">Data starts in systems that don't talk to each other and ends in one enriched layer that lets stakeholders make confident decisions. This is everything in between.</p>
+    <div class="tabs reveal" id="ptabs">
+      <button class="tab on" data-k="shell">Shell Energy</button>
+      <button class="tab" data-k="abcam">Abcam</button>
+      <button class="tab" data-k="citi">Citi</button>
+    </div>
+    <div class="story reveal" id="pstory"><p id="storyA"></p><p id="storyB"></p></div>
+    <div class="pipe" id="pipeviz">
+      <div class="ends"><span id="endL">Where the data starts</span><span id="endR">Where decisions get made</span></div>
+      <div class="flow">
+        <div class="node src"><div class="hd"><i>00</i><b>Sources</b></div><ul><li>Salesforce</li><li>Oracle</li><li>Redshift</li><li>SAP</li><li>Kafka events</li><li>Excel mappings</li></ul><div class="cap">Five markets of Salesforce, billing, SAP, a legacy warehouse and a spreadsheet nobody dares delete. Nothing agrees yet.</div></div>
+        <div class="link"><svg viewBox="0 0 60 12" preserveAspectRatio="none"><path class="dash" d="M0 6 H60"/></svg></div>
+        <div class="node b"><div class="hd"><i>01</i><b>Bronze</b><small>Land</small></div><ul><li>PySpark · JDBC</li><li>Auto Loader</li><li>Every field, as is</li><li>Load timestamp</li><li>Delta, append</li></ul><div class="cap">Everything lands exactly as it arrived. One PySpark job over every table at Abcam, every Salesforce object at Shell.</div></div>
+        <div class="link"><svg viewBox="0 0 60 12" preserveAspectRatio="none"><path class="dash" d="M0 6 H60"/></svg></div>
+        <div class="node s"><div class="hd"><i>02</i><b>Silver</b><small>Transform</small></div><ul><li>dbt models</li><li>Typed, deduplicated</li><li>Conformed keys</li><li>unique · not_null tests</li><li>Incremental MERGE</li></ul><div class="cap">dbt models with tests. A bad spreadsheet row fails the run in dev instead of quietly halving a dashboard.</div></div>
+        <div class="link"><svg viewBox="0 0 60 12" preserveAspectRatio="none"><path class="dash" d="M0 6 H60"/></svg></div>
+        <div class="node g"><div class="hd"><i>03</i><b>Gold</b><small>Serve</small></div><ul><li>Facts and dimensions</li><li>Enriched views</li><li>Unity Catalog grants</li><li>Row level visibility</li><li>Lineage</li></ul><div class="cap">Facts, dimensions and the Customer 360 views. Governed in Unity Catalog so finance and sales see the same number.</div></div>
+        <div class="link"><svg viewBox="0 0 60 12" preserveAspectRatio="none"><path class="dash" d="M0 6 H60"/></svg></div>
+        <div class="node out"><div class="hd"><i>04</i><b>Consumers</b></div><ul><li>Power BI</li><li>Genie in Teams</li><li>Databricks SQL</li><li>Analysts</li><li>Finance, sales, ops</li></ul><div class="cap">Power BI, SEBI in Teams, and the people who asked the question in the first place.</div></div>
+      </div>
+      <div class="ailane">
+        <div class="ailabel">Where AI helps</div>
+        <p class="aiintro" id="aiintro"></p>
+        <div class="aidots">
+          <div class="aid"><i style="--r:9px"></i><span>discovery, docs</span><em></em></div>
+          <div class="aid"><i style="--r:6px"></i><span>boilerplate</span><em></em></div>
+          <div class="aid"><i style="--r:11px"></i><span>tests, translation</span><em></em></div>
+          <div class="aid"><i style="--r:4px"></i><span>descriptions</span><em></em></div>
+          <div class="aid"><i style="--r:14px"></i><span>Genie, SEBI</span><em></em></div>
+        </div>
+        <div class="ailine">AI speeds up the typing, not the thinking. Smallest at Gold, where the modelling judgement stays human.</div>
+      </div>
+      <div class="rail"><span>Designed with</span><b>The people who use it</b><span>Runs on</span><b>Databricks Workflows · Airflow</b><span>Promoted through</span><b>Git · CI · dev → uat → prod</b></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="capabilities">
+  <div class="wrap">
+    <div class="label"><span class="n">[02]</span><span class="t">Capabilities</span></div>
+    <h2 class="reveal">The tools behind the work.</h2>
+    <div class="cols reveal">
+      <div><h4>Databricks and Snowflake</h4><div class="xbar"><i style="--w:60%"></i><span>5+ years</span></div><ul><li>Delta Lake</li><li>Unity Catalog</li><li>Workflows</li><li>Auto Loader · JDBC</li><li>Genie · Databricks SQL</li><li>Snowflake</li></ul></div>
+      <div><h4>Modelling and dbt</h4><div class="xbar"><i style="--w:60%"></i><span>5+ years</span></div><ul><li>Medallion architecture</li><li>Dimensional modelling</li><li>Incremental models · MERGE</li><li>Schema and relationship tests</li><li>Docs and lineage</li></ul></div>
+      <div><h4>Languages and cloud</h4><div class="xbar"><i style="--w:100%"></i><span>10+ years</span></div><ul><li>Python · PySpark</li><li>SQL · Spark SQL</li><li>Azure · AWS</li><li>APIs and metadata</li><li>Kafka · Structured Streaming</li></ul></div>
+      <div><h4>Methods and tools</h4><div class="xbar"><i style="--w:100%"></i><span>10+ years</span></div><ul><li>Lakehouse migration</li><li>Dev · UAT · Prod promotion</li><li>CI/CD · Git</li><li>UAT design and sign off</li><li>Data storytelling · Power BI</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="support">
+  <div class="wrap">
+    <div class="label"><span class="n">[03]</span><span class="t">How I can support you</span></div>
+    <h2 class="reveal">Where I'm <span>useful</span>.</h2>
+    <div class="split">
+      <div class="help" id="helprows">
+        <div class="hrow reveal" data-k="0"><span class="i">(01)</span><div><h4>Warehouse to lakehouse migration</h4><p>Redshift, Oracle or Snowflake to Databricks. Inventory, access, extraction, bronze landing, logic rebuild, side by side validation, cutover. Done it end to end.</p></div></div>
+        <div class="hrow reveal" data-k="1"><span class="i">(02)</span><div><h4>dbt transformation layer</h4><p>Staging, intermediate and marts under version control, with tests that fail in dev before production ever sees bad data. Turns spreadsheets and scripts into governed sources.</p></div></div>
+        <div class="hrow reveal" data-k="2"><span class="i">(03)</span><div><h4>AI products on governed data</h4><p>Genie spaces, instruction sets and UAT, delivered where people already work. The model underneath has to be clean first, and that's the part I own.</p></div></div>
+        <div class="hrow reveal" data-k="3"><span class="i">(04)</span><div><h4>Governance and environments</h4><p>Unity Catalog design, row level visibility, dev to UAT to prod promotion through Git and CI, formal sign off before anything reaches production.</p></div></div>
+        <div class="hrow reveal" data-k="4"><span class="i">(05)</span><div><h4>Data storytelling and the business case</h4><p>Translating data quality into hours and money leadership can act on. The cost of bad data model at Shell turned a field completion problem into a funded fix.</p></div></div>
+      </div>
+      <aside class="side reveal">
+        <div class="panel" id="helppanel">
+          <div class="pk" id="pk">How I work</div>
+          <ul id="pl">
+            <li>I start with the decision, not the data.</li>
+            <li>I say no to fields. Every column is one you support forever.</li>
+            <li>I show the business when a number they trust is wrong.</li>
+            <li>I document as I go, so nothing depends on me being in the room.</li>
+          </ul>
+          <div class="pf" id="pf">Hover a service to see what it delivers.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="voices">
+  <div class="wrap">
+    <div class="label"><span class="n">[04]</span><span class="t">What people say</span></div>
+    <h2 class="reveal">Hear it from the people I've <span>worked with</span>.</h2>
+  <div class="strip reveal">
+    <div class="track" id="track">
+      <div class="quote"><p>“What sets him apart is his ability to go beyond the initial ask, understand the underlying business needs, and deliver solutions that genuinely make a difference.”</p><small>Kopal Agrawal · Business Analyst · Shell Energy</small></div>
+      <div class="quote"><p>“His ability to understand business needs, collaborate with stakeholders, and work through technical challenges made him a valuable member of the team.”</p><small>Bedanta Biswal · Azure Data Engineer · Shell Energy</small></div>
+      <div class="quote"><p>“Rameez is one of those people who just gets data. He can take something complicated and turn it into clear, useful insights that actually help us make better decisions.”</p><small>Kamelia Hammoumraoui · Automation Business Analyst · Abcam</small></div>
+      <div class="quote"><p>“During the technical migration to Danaher systems, Rameez demonstrated great knowledge of data analysis, evaluating new data sources and data engineering best practices, including pipeline design.”</p><small>Jordan Wiseman · AI Platform Engineer · Abcam</small></div>
+      <div class="quote"><p>“Highly skilled in Tableau, particularly demonstrating dashboard creation to less technical users and explaining complex techniques in a simple way.”</p><small>Jav Nooshi · Data Engineer · Abcam</small></div>
+      <div class="quote"><p>“What stood out most was his thorough documentation, clear communication, and commitment to ensuring smooth handover for the subsequent team.”</p><small>Allen Lee · Associate Account Manager · DHL IT Services</small></div>
+      <div class="quote"><p>“Rameez is that person you always want on your project team. His ability to manage competing priorities, communicate to stakeholders, and make time to explain processes in detail.”</p><small>Tony Valle · Applications Development Technical Lead, VP · Citi</small></div>
+      <div class="quote"><p>“He is able to take complex pieces of work and methodically achieve a suitable solution, while working to a high standard.”</p><small>Farhaanah Ali · Programme Manager, VP · Citi</small></div>
+      <div class="quote"><p>“He soon became a key legal resource for our team and was a bridge between technology and legal. If I had a query I knew I could count on Rameez for help.”</p><small>Shamal Deore · Vice President · Citi</small></div>
+      <div class="quote"><p>“A key resource when it comes to UAT sign off. Through his determination we are able to fix issues in UAT before we go live in production.”</p><small>Divya Bandyopadhyay · Product Leader · Citi</small></div>
+      <div class="quote"><p>“Rameez led training for wide audiences on a multitude of platforms and showed great skill in presenting to large audiences.”</p><small>Cameron Kirkpatrick · In-House Counsel · Citi</small></div>
+      <div class="quote"><p>“He took ownership of reviewing and refining our codebase, implementing much-needed efficiency improvements, and producing clear, easy-to-understand documentation.”</p><small>Rehan Mirza · Researcher · Tech Policy Tracker</small></div>
+      <div class="quote"><p>“Reliable, attention to detail, customer centric, always proactive and a great communicator.”</p><small>Esther Jover Lugo · JLG Financial Solutions · DLL Group</small></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <div class="label"><span class="n">[05]</span><span class="t">Credentials</span></div>
+    <div class="cred">
+      <div><h4>Education</h4><ul>
+        <li>BSc Mathematics<small>The Open University</small></li>
+        <li>MSc Predictive Modelling and Scientific Computing<small>University of Warwick</small></li>
+      </ul></div>
+      <div><h4>Certifications</h4><ul>
+        <li>Databricks Certified Data Engineer Associate</li>
+        <li>AWS Certified Data Engineer Associate</li>
+        <li>AWS Certified Data Analytics Specialty</li>
+        <li>AWS Certified Cloud Practitioner</li>
+        <li>GCP Professional Data Engineer<small>Google Cloud</small></li>
+        <li>SnowPro Core Certification<small>Snowflake</small></li>
+        <li>Power BI Data Analyst Associate, PL-300<small>Microsoft</small></li>
+        <li>Tableau Certified Data Analyst</li>
+        <li>Tableau Desktop Specialist</li>
+        <li>Salesforce Certified Administrator</li>
+        <li>Alteryx Designer Core</li>
+      </ul></div>
+      <div><h4>Professional</h4><ul>
+        <li>Founder, Aleatoric Lab<small>Independent ML research consultancy</small></li>
+        <li>British Academy Early Career Researcher Network<small>Member</small></li>
+        <li>MLCommons AI Risk and Reliability working group<small>Contributor</small></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="label"><span class="n">[06]</span><span class="t">Let's connect</span></div>
+    <h2 style="font-size:clamp(36px,5vw,60px)">Let's make data matter.</h2>
+    <div class="row">
+      <div><a href="mailto:data.rameez.raja@gmail.com?subject=Hello%20Rameez" id="email">Email ↗</a><a href="#top">Back to top ↑</a></div>
+      <div>© 2026 Rameez Raja · United Kingdom</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){var v=document.getElementById('vid'),cards=document.querySelectorAll('.scard');if(!v)return;var bars=document.querySelectorAll('.bars span i');function tick(){var t=v.currentTime,d=v.duration||33.4;cards.forEach(function(c,i){var a=parseFloat(c.dataset.from),b=Math.min(parseFloat(c.dataset.to),d);c.classList.toggle('on',t>=a+0.4&&t<b);if(bars[i]){var p=t<a?0:(t>=b?1:(t-a)/(b-a));bars[i].style.width=(p*100)+'%';}});}v.addEventListener('timeupdate',tick);v.addEventListener('seeked',tick);tick();})();
+(function(){var p=document.getElementById('pipeviz');if(!p)return;
+var D={
+shell:{q:"“What’s my closed won volume this quarter?”",a:"One number, the same in every market, asked in Teams.",
+ sA:"At Shell Energy I worked on a migration from Salesforce into Databricks, the Customer 360 project. Five countries across Europe, each using Salesforce differently, and the goal was to consolidate everything in one place to give one view of the customer.",
+ sB:"It was never just about getting the data in. Most of what I’ve learnt is that you can build the tool and nobody uses it, so this was as much about getting people to use it as building it. This is the pipeline and how it was approached.",
+ n:[["Salesforce CRM, one per market","Ad hoc spreadsheets","Junifer billing","SAP","Three numbers, no single truth"],["Every object, as is","One API pull","Load timestamp","Nothing filtered","Delta, append"],["dbt models, not SQL scripts","Descriptions on every column","Cleaning and deduplication","Tests on every key","Reconciliation scripts"],["Enriched views","Shaped for each consumer","Unity Catalog lineage","Grants and row level visibility","One definition of closed won"],["Genie in Teams","Power BI","AI and ML agents","Same source for everyone"]],
+ c:["Every country doing its own thing. Multiple reports, three different numbers, no one version of the truth. Account managers skipping fields because nothing ever came back to them, so the data wasn’t even there.","Land it all first, in one pull. Cheaper than picking fields, and when someone starts using a new one it’s already there.","dbt instead of loose SQL. Documented, cleaned, tested, with scripts that check the numbers match what the markets already report.","Views built around the question, not the table. Unity Catalog shows exactly where every number came from.","A sales manager in Spain asks in Teams and gets the same answer as one in Rotterdam. Everyone reads from one place."],
+ ai:{i:"AI and LLMs are entering this process now, and my view is that where it helps we should be using it. This is where I used it on Customer 360.",d:[[8,"Profiling empty fields","Ran an LLM over the Salesforce schema and fill rates per market to flag which fields were blank, and wrote the first draft of the questions back to each country."],[7,"Loader code, schemas","Generated the PySpark loaders and Delta schemas for every object from the API metadata, then reviewed and fixed by hand."],[12,"Tests, descriptions","Drafted dbt tests and column descriptions for every silver model, and translated reconciliation SQL between dialects."],[5,"View boilerplate","Only the scaffolding of the gold views. What closed won means, and at what grain, stayed a human decision."],[14,"Genie, agents","Genie on the gold tables so a question in Teams gets an answer, with the instructions tested line by line in UAT."]],l:"AI took the typing. The modelling, and the conversations with each market, stayed human."}},
+abcam:{q:"“Why can’t I see any data? When will it be loaded?”",a:"Data that’s there every morning, in Tableau, with nobody asking.",
+ sA:"At Abcam the data sat in on premise Oracle systems. Expensive to run, poor at connecting to newer tools like SnapLogic, and when an Oracle job or an ODBC connector failed everyone waited. The move was to AWS, with Redshift as the warehouse.",
+ sB:"The people side was simple to describe and hard to do. Analysts had learnt to keep their own Excel copies because the data was down so often. The job was to give them something reliable enough that they stopped. This is the pipeline and how it was approached.",
+ n:[["Oracle ERP, on premise","Excel mapping sheets","Duplicate product IDs","Kafka order streams","ODBC jobs that failed"],["Oracle to S3","PySpark and Glue jobs","Every table, as is","Load timestamp","COPY into Redshift"],["dbt models on Redshift","Tests on product ID","Relationship test to mapping","Deduplicated SKUs","Incremental runs"],["dim_product and facts","Enriched views","IAM, role based access","Scheduled refresh","Documented and clustered"],["Tableau repointed","Connections refreshed","Product and commercial teams","Oracle switched off"]],
+ c:["Disjointed and unreliable. Oracle down often enough that people couldn’t get data or do their jobs, so they fell back to Excel and three versions of the truth.","Get it out of Oracle and into S3 first, then COPY into Redshift. Airflow and SnapLogic ran the schedules, so a failed job retried instead of waiting on a person.","The Excel mapping became a governed dbt seed with tests. A duplicate product ID fails the run in dev, not on a dashboard.","Modelled on Redshift with IAM and role based access so each team sees what it should. Scheduled, documented, and there every morning.","Analytics reconnected Tableau to the new tables and refreshed every connection. Everyone getting data, nobody keeping a spreadsheet copy."],
+ ai:{i:"This was when LLMs started turning up in day to day engineering work. Here is where I used them at Abcam.",d:[[9,"Inventory, discovery","Ran an LLM over Oracle’s catalogue and query logs to list which tables were actually used, so we migrated those and skipped the rest."],[7,"Loader code","Generated the Glue and PySpark extraction boilerplate per table from the schema, then reviewed by hand."],[11,"SQL translation, tests","Translated Oracle PL/SQL into Redshift dialect for dbt and drafted the tests on every key."],[4,"Descriptions","Column descriptions for dbt docs so the business could read what each field meant."],[8,"Reconciliation","Wrote the comparison scripts that checked Oracle and Redshift counts and sums matched before Tableau was switched."]],l:"AI did the translation and the typing. Deciding what a product is, and what to migrate, stayed human."}},
+citi:{q:"“How many candidates are in the pipeline, and can I trust that?”",a:"One headcount, one candidate number, in Tableau, with an audit trail the regulator accepts.",
+ sA:"At Citi this was people analytics. Candidate and employee data lived in Workday, Avature for early careers, and the spreadsheets teams kept on the side, and the regulator wanted to know where every number came from. We were consolidating it into the Salesforce data lake.",
+ sB:"Two migrations ran at once. The data was moving into Salesforce while reporting was moving from Power BI to Tableau, so every dashboard had to be rebuilt and proven against the old one before anyone switched. This is the pipeline and how it was approached.",
+ n:[["Workday HR","Avature, early careers","Team spreadsheets","Power BI reports","Regulator questions"],["Workday and Avature APIs","Python extraction","Config per source","Validated on land","Logged every step"],["Validation rules","Counts, mandatory fields, dates","Dedup on candidate ID","One candidate across systems","Medallion in the data lake"],["People reporting dataset","Fact and dimension tables","Role based access","Reconciled to source","Documented"],["Tableau, rebuilt from Power BI","Scheduled run with alerts","HR, recruiting, leadership","Spreadsheets retired"]],
+ c:["Three systems, three headcounts, and personal data in spreadsheets nobody had signed off. When the regulator asked where a number came from, there wasn’t a clean answer.","A framework, not a script. Each source is a config block, every pull is validated and logged, so the audit trail exists from the first load.","Same person in Workday and Avature under different IDs. Matched, deduplicated, and tested so one candidate counts once.","Modelled for HR questions, with access by role because this is personal data. Reconciled to source so every number can be traced back.","Every Power BI report rebuilt in Tableau and run side by side before switching. HR stopped keeping their own copies."],
+ ai:{i:"This was when LLMs were first released, so AI played a small part. Where I saw real value was on the coding side and in scripts for testing.",d:[[3,"Not here","Source discovery was done by talking to HR and recruiting, not by a model."],[8,"Extraction code","First drafts of the API clients and the pagination and retry logic, then reviewed and tested."],[10,"Test scripts","Scripts that compared counts and totals between Workday, Avature and the lake, which is how the duplicate IDs were found."],[4,"SQL boilerplate","Repetitive dimension and fact scaffolding, with the modelling decisions made by hand."],[5,"Rebuild checks","Scripts to compare Power BI and Tableau outputs during the switch."]],l:"Early days for AI. Useful for code and tests, nowhere near the data or the decisions."}}
+};
+var nodes=p.querySelectorAll('.node'),items=p.querySelectorAll('.flow > *'),rail=p.querySelector('.rail'),lane=p.querySelector('.ailane'),endL=document.getElementById('endL'),endR=document.getElementById('endR');
+var story=document.getElementById('pstory');function fill(k){var d=D[k];story.style.display=d.sA?'':'none';document.getElementById('storyA').textContent=d.sA;document.getElementById('storyB').textContent=d.sB;story.classList.remove('swap');void story.offsetWidth;story.classList.add('swap');endL.textContent=d.q;endR.textContent=d.a;nodes.forEach(function(nd,i){var ul=nd.querySelector('ul');ul.innerHTML=d.n[i].map(function(x){return '<li>'+x+'</li>';}).join('');nd.querySelector('.cap').textContent=d.c[i];});var ad=lane.querySelectorAll('.aid');ad.forEach(function(el,i){el.querySelector('i').style.setProperty('--r',d.ai.d[i][0]+'px');el.querySelector('span').textContent=d.ai.d[i][1];el.querySelector('em').textContent=d.ai.d[i][2]||'';});var ai=document.getElementById('aiintro');ai.textContent=d.ai.i||'';ai.style.display=d.ai.i?'':'none';lane.querySelector('.ailine').textContent=d.ai.l;}
+var timers=[];function play(){timers.forEach(clearTimeout);timers=[];items.forEach(function(el){el.classList.remove('lit');});rail.classList.remove('lit');lane.classList.remove('lit');var t=120;items.forEach(function(el){timers.push(setTimeout(function(){el.classList.add('lit');},t));t+=el.classList.contains('link')?250:650;});timers.push(setTimeout(function(){rail.classList.add('lit');},t+200));lane.querySelectorAll('.aid i').forEach(function(dd,i){dd.style.transitionDelay=(i*120)+'ms';});timers.push(setTimeout(function(){lane.classList.add('lit');},t+900));}
+fill('shell');
+var started=false;var io=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!started){started=true;play();}},{threshold:0.25});io.observe(p);
+document.querySelectorAll('#ptabs .tab').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#ptabs .tab').forEach(function(x){x.classList.remove('on');});b.classList.add('on');fill(b.dataset.k);started=true;play();});});
+})();
+(function(){var rows=document.querySelectorAll('#helprows .hrow'),wrap=document.getElementById('helprows'),panel=document.getElementById('helppanel'),pk=document.getElementById('pk'),pl=document.getElementById('pl'),pf=document.getElementById('pf');if(!panel)return;
+var base={k:'How I work',l:['I start with the decision, not the data.','I say no to fields. Every column is one you support forever.','I show the business when a number they trust is wrong.','I document as I go, so nothing depends on me being in the room.'],f:'Hover a service to see what it delivers.'};
+var D=[
+{k:'What you get',l:['An inventory of what is actually used, so we migrate that and skip the rest.','Every table landed in bronze with an auditable copy.','The logic rebuilt as tested dbt models, dialect fixed.','Counts and sums proven side by side before anyone switches a dashboard.'],f:'For teams retiring Redshift, Oracle or a warehouse that has outgrown them.'},
+{k:'What you get',l:['A dbt project in Git with staging, intermediate and marts.','Tests on every key so a bad row fails in dev, not in a board pack.','Incremental models so the nightly run takes minutes.','Docs and lineage the business can read.'],f:'For teams whose transformations live in scripts, notebooks or a spreadsheet.'},
+{k:'What you get',l:['A Genie space on gold tables with instructions that actually work.','UAT run instruction by instruction, defects fed back into the model.','Delivered where people are, Teams, not a new tool to learn.','A cost model so finance knows what it costs and what it saves.'],f:'For teams who want self service that gives the same answer as the dashboard.'},
+{k:'What you get',l:['Unity Catalog laid out by environment and layer.','Row level visibility instead of duplicate tables.','Dev, UAT and prod promotion through pull requests and CI.','Formal sign off before production, every time.'],f:'For teams where prod gets edited by hand and nobody is sure who can see what.'},
+{k:'What you get',l:['The manual process timed, step by step, with the people doing it.','A cost of bad data number leadership can act on.','A root cause that does not blame the people filling in the fields.','A two page case that gets the fix funded.'],f:'For teams who know the data is bad but cannot get budget to fix it.'}];
+function set(d){panel.classList.remove('swap');void panel.offsetWidth;panel.classList.add('swap');pk.textContent=d.k;pl.innerHTML=d.l.map(function(x){return '<li>'+x+'</li>';}).join('');pf.textContent=d.f;}
+rows.forEach(function(r){r.addEventListener('mouseenter',function(){rows.forEach(function(x){x.classList.remove('on');});r.classList.add('on');wrap.classList.add('dim');panel.classList.add('hot');set(D[+r.dataset.k]);});r.addEventListener('click',function(){r.dispatchEvent(new Event('mouseenter'));});});
+wrap.addEventListener('mouseleave',function(){rows.forEach(function(x){x.classList.remove('on');});wrap.classList.remove('dim');panel.classList.remove('hot');set(base);});
+})();
+(function(){var m=document.getElementById('sidemenu'),hero=document.querySelector('.hero');if(!m||!hero)return;var links=m.querySelectorAll('a');
+function fit(){var w=document.documentElement.clientWidth;var ok=w>=1240;m.classList.toggle('ok',ok);document.body.classList.toggle('hasmenu',ok);}
+var foot=document.getElementById('contact');function onScroll(){m.classList.toggle('show',window.scrollY>hero.offsetHeight*0.8);var mid=window.innerHeight/2,h=m.offsetHeight;if(foot){var r=foot.getBoundingClientRect();if(r.top>0&&r.top<mid+h/2+20){m.style.top=Math.min(r.top+24+h/2,window.innerHeight-h/2-16)+'px';return;}}m.style.top='50%';}
+window.addEventListener('resize',fit);window.addEventListener('scroll',onScroll,{passive:true});fit();onScroll();
+var ids=['about','pipeline','capabilities','support','voices','credentials','contact'];
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.dataset.s===e.target.id);});}});},{rootMargin:'-40% 0px -50% 0px',threshold:0});
+ids.forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+})();
+(function(){var L=document.getElementById('loader'),v=document.getElementById('vid'),done=false;function go(){if(done)return;done=true;setTimeout(function(){L.classList.add('off');},400);}
+var t0=Date.now();function ready(){var wait=Math.max(0,1400-(Date.now()-t0));setTimeout(go,wait);}
+if(v){if(v.readyState>=3)ready();else{v.addEventListener('canplay',ready,{once:true});}}
+window.addEventListener('load',function(){setTimeout(ready,200);});setTimeout(go,4500);})();
+(function(){var track=document.getElementById('track');if(!track)return;var tools=['Databricks','dbt','Unity Catalog','Genie','GenAI','PySpark','Snowflake','Redshift','Airflow','Kafka','Power BI','Tableau','UAT','Salesforce','pipeline design'];track.querySelectorAll('.quote p').forEach(function(p){var h=p.innerHTML;tools.forEach(function(t){h=h.split(t).join('<mark>'+t+'</mark>');});p.innerHTML=h;});track.innerHTML+=track.innerHTML;})();
+(function(){var els=document.querySelectorAll('.reveal');var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});els.forEach(function(e){io.observe(e);});})();
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Rameez Raja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--ink:#f2f1ec;--mute:#9a9892;--soft:#131315;--line:rgba(255,255,255,.12);--accent:#2fb8a6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:20;background:rgba(10,10,11,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo .mark{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1.5px solid #000;border-radius:50%;background:#fff;color:#000;font-family:"JetBrains Mono",monospace;font-weight:500;font-size:14px;letter-spacing:-.02em}
+nav ul{display:flex;gap:10px;list-style:none}
+nav li a{font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,.35);color:var(--mute);padding:8px 14px;border-radius:999px}
+nav li a:hover{border-color:var(--ink);color:var(--ink)}
+nav li.cta a{border-color:var(--ink);color:var(--ink)}
+
+.page{display:grid;grid-template-columns:40px 1fr 300px;gap:40px;padding:72px 0 96px;align-items:start}
+.vlabel{writing-mode:vertical-rl;transform:rotate(180deg);font-size:14px;color:var(--ink);letter-spacing:.02em;justify-self:start;position:sticky;top:96px}
+.bio{position:relative}
+.bio .photo{float:right;width:220px;aspect-ratio:4/5;object-fit:cover;margin:0 0 18px 32px;border:1px solid var(--line);display:block}
+.bio p{font-size:17px;line-height:1.75;text-align:justify;margin-bottom:18px;color:var(--ink)}
+.bio p.fade{color:var(--ink)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tab{display:inline-block;text-decoration:none;font:inherit;font-size:13px;font-weight:500;padding:9px 16px;border:1px solid var(--line);background:transparent;color:var(--mute);cursor:pointer;transition:all .25s}
+.tab:hover{border-color:rgba(255,255,255,.4);color:var(--ink)}
+.tab.on{background:#fff;color:#000;border-color:#fff}
+.pane{display:none;margin-top:36px}
+.pane.on{display:block}
+
+.xp .row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+.xp .d{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.06em}
+.xp h4{font-size:18px;font-weight:500;line-height:1.3}
+.xp .c{font-size:14px;color:var(--mute);margin-top:2px}
+.xp ul{margin-top:10px;padding-left:18px;color:var(--mute);font-size:15px;display:grid;gap:5px}
+.xp li::marker{color:var(--accent)}
+.xp .deep .lead{margin-top:14px;font-size:16px;line-height:1.65;color:var(--ink);max-width:720px}
+.xp .deep h5{margin-top:26px;font-size:15px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.xp .deep ul{margin-top:8px;line-height:1.55}
+.xp .deep .note{margin-top:22px;font-size:14px;color:var(--mute)}
+@media(max-width:600px){.xp .row{grid-template-columns:1fr;gap:6px}}
+
+.list li{list-style:none;padding:12px 0;border-top:1px solid var(--line);font-size:16px}
+.list li small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+
+.aside{display:grid;gap:22px;position:sticky;top:96px}
+.aside .blk{font-size:15px;line-height:1.6}
+.aside .blk a{border-bottom:1px solid rgba(255,255,255,.5)}
+.aside .blk a:hover{border-color:var(--ink)}
+.aside .dash{color:var(--mute)}
+.aside .big{font-size:24px;font-weight:300;display:flex;align-items:center;gap:12px;margin-top:6px}
+.aside .big:hover{color:#fff}
+.aside .big span{font-size:22px;transition:transform .25s}
+.aside .big:hover span{transform:translate(3px,-3px)}
+@media(max-width:900px){.page{grid-template-columns:1fr;gap:28px}.vlabel{writing-mode:horizontal-tb;transform:none;position:static}.aside{position:static}.bio .photo{float:none;margin:0 0 20px;width:100%;max-width:280px}.bio p{text-align:left}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="mark">rr.</span></a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="studio.html">Enter my data studio</a></li>
+      <li class="cta"><a href="mailto:data.rameez.raja@gmail.com?subject=Hello%20Rameez">Let's talk ↗</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page">
+    <div class="vlabel">Biography</div>
+
+    <div>
+      <div class="bio">
+        <img class="photo" src="portrait.jpg" alt="Rameez Raja">
+        <p>Rameez Raja is a data and analytics engineer based in the United Kingdom, with twelve years spent turning disconnected source systems into data that businesses can act on. He started as an analyst, chasing numbers through spreadsheets and systems that did not agree with each other, and that is still how he approaches the work. Before touching a pipeline, he wants to know who is waiting on the number and what they will do with it.</p>
+        <p>His career runs through financial services, life sciences and energy, and across continents, with time working in Northern Ireland and New York and study exchanges in China. At DLL Group, part of Rabobank, he built the foundations in SQL, warehousing and reporting. At Citi he designed a medallion architecture on Snowflake for People Analytics and replaced forty hours a week of manual regulatory reporting with a single scheduled Python run, work that was adopted across Global Markets and recognised with the Innovation Award. At Abcam, part of Danaher, he migrated the Oracle and Redshift warehouse onto Databricks and rebuilt its transformation layer as tested dbt models. Most recently at Shell Energy he delivered Customer 360 across five European markets under Unity Catalog and launched SEBI, the first Genie deployment into Microsoft Teams across Shell.</p>
+        <p class="fade">He is the founder of Aleatoric Lab, an independent research consultancy focused on probabilistic machine learning and uncertainty quantification, with conference publications at ICML and NeurIPS. He is a member of the British Academy Early Career Researcher Network, and a contributor to the MLCommons AI Risk and Reliability working group. He holds an MSc in Predictive Modelling and Scientific Computing from the University of Warwick and a BSc in Mathematics from The Open University.</p>
+      </div>
+
+      <div class="tabs" id="tabs">
+        <button class="tab on" data-p="bio">Biography</button>
+        <button class="tab" data-p="xp">Experience</button>
+        <button class="tab" data-p="edu">Education</button>
+        <a class="tab" href="#" id="cv" download>Résumé ↓</a>
+      </div>
+
+      <div class="pane on" id="p-bio"></div>
+
+      <div class="pane xp" id="p-xp">
+        <div class="row deep"><span class="d">MAY 2026 – OCT 2026</span><div><h4>Senior Data Analytics Engineer, Databricks AI/ML</h4><div class="c">Shell Energy · London</div>
+          <p class="lead">Shell Energy sells power and gas to businesses in five European markets, and each market had grown its own Salesforce, its own reports and its own version of the numbers. I joined the NBI Operational Excellence team as a contractor to help build Customer 360 on Databricks, get the business using it, and put the first Genie deployment into Microsoft Teams anywhere in Shell. Six months, five countries, and a lot of conversations about what a number actually means.</p>
+
+          <h5>Customer 360, one view of the customer across UK, NL, ES, IT and DE</h5><ul>
+          <li>Salesforce objects for every market landed as they are into a bronze layer on Azure Databricks, Delta tables with a load timestamp and nothing filtered. One mapping sheet tracked every Salesforce field and what it became downstream, which turned out to be the single most used document on the project.</li>
+          <li>A harmonised global model in silver. Account, Opportunity, Product, Lead and Quote conformed across five Salesforce setups, with source_system stamped on every row so any number can be traced back to the market it came from.</li>
+          <li>The hard modelling was closed won. An opportunity has many deal entries, so closed won volume comes from the deal entry grain, contracted volume summed over time with the close date as the latest execution date, while open pipeline comes from the opportunity itself. Get that wrong and volume double counts, and it had been.</li>
+          <li>Enriched views in gold, per market and global, built around the questions sales, finance and leadership actually asked rather than around the tables. Governed in Unity Catalog with lineage, so finance and sales read the same figure from the same place.</li>
+          <li>The single view existed for the first time when UK data went in. The UK ran on Junifer for billing rather than SAP and its "Salesforce" pipeline turned out to come from a hand maintained SharePoint file, so rather than force a harmonisation we built one Salesforce view and one Junifer view and let the business owners decide which number went on the dashboard.</li>
+          <li>Promoted through Git and CI from dev to UAT to production, with Databricks Workflows running the loads. No hand edits in prod.</li>
+          </ul>
+
+          <h5>SEBI, the first Genie deployment into Microsoft Teams across Shell</h5><ul>
+          <li>Genie is Databricks' natural language interface over governed tables. SEBI put it inside Teams, where the sales teams already were, so a manager in Spain could ask "what is my closed won volume this quarter" and get the same answer the dashboard gave, without opening Databricks or Salesforce.</li>
+          <li>Ran UAT instruction by instruction against the 18 rule instruction set that shaped how Genie reads a question. Logged every failure with the prompt, the SQL Genie wrote and the SQL it should have written, and passed the defects back as a tracked spreadsheet to the modelling team.</li>
+          <li>Found the ones that mattered. Genie silently falling back to key account tables when the question never mentioned them. A country rule whose example values were being read as stored data, so Italy returned nothing. Entity matching that needed enabling on a country field because accounts stored the sales office and opportunities stored the country name. Each one became a change to the gold model or the instruction wording, tested in UAT first.</li>
+          <li>Tested the Teams integration itself for error states, token limits, oversized responses and content validation, and documented each with the prompt that triggered it.</li>
+          <li>Wrote the SEBI user guide and built the Shell AI toolkit dashboard so people knew what existed and how to ask. Getting the data in was half the job. Getting people to type a question into it was the other half.</li>
+          </ul>
+
+          <h5>SIT, UAT and governance, bringing US data into the global model</h5><ul>
+          <li>Shell Energy Solutions US regional data harmonised into the same global schema, stamped as its own source system, with visibility restricted through Unity Catalog and Active Directory groups so European users never see it and an advanced group sees both.</li>
+          <li>Formal SIT and UAT with fifteen numbered test cases. Harmonisation and load counts against the mapping, B2B record type filtering on every in scope object, consistency across landing, raw and enriched layers, and the visibility restriction tested from inside each group. Production deployment was gated on my sign off and the data lead's, and we did not sign until every case passed.</li>
+          <li>Set up a prototype schema in the production Unity Catalog, restricted to advanced users, where business supplied datasets such as credit ratings and SAP invoices could sit alongside the modelled data without pretending to be a source system. Enablement rather than delivery. The Dutch team built their own dashboard on it.</li>
+          </ul>
+
+          <h5>Genie cost model, so the business knew what AI cost and what it saved</h5><ul>
+          <li>Databricks changed Genie pricing mid project, so nobody could say what it would cost to roll out to 250 business users. Built the cost model from Databricks system tables across production, UAT and dev, with the DBU rate pulled from the tables rather than a price list.</li>
+          <li>Defined basic, intermediate and advanced personas, mapped the free allowance and the per user soft cap onto them, and set budgets, alerts and blocking at workspace level with per group overrides. Added per user cost layers to the Genie usage dashboard so the team could see who was spending what.</li>
+          <li>Turned it into a business case. Even at the top of the range Genie came out cheaper, because insight volume goes up, analyst time goes down and Salesforce reporting traffic moves onto the platform that is already governed.</li>
+          </ul>
+
+          <h5>Cost of bad data, turning a data quality complaint into a funded fix</h5><ul>
+          <li>Sat with the Spanish marketing manager and the Dutch analysts and timed what they did by hand. Retention rate, customer value insights, a daily SAP invoice reconciliation that took five hours a week. Hours multiplied by a loaded day rate, plus the cost of a decision made late because the answer took three weeks.</li>
+          <li>Traced it upstream. The manual work existed because Salesforce fields were not reliably filled, and they were not filled because account managers saw nothing come back from filling them. The deck framed data quality as a shared fix rather than a sales problem, and leadership agreed to fund it on that basis.</li>
+          <li>Fed the use cases into the AI and automation programme, where the Spanish reconciliation and the UK broker commission matching were picked up as the next wave.</li>
+          </ul>
+
+          <h5>Alongside the platform work</h5><ul>
+          <li>Built the Operational Excellence dashboard suite in Power BI for the head of OpEx, hybrid delivery model, AI initiatives and sales excellence, with custom Deneb visuals, and validated every figure to the dollar against the finance model before it went into his quarterly.</li>
+          <li>Owned the AI opportunity list for the DIY AI and automation programme across UK, NL, ES and DE, prioritising use cases with the business lead and the IT focal.</li>
+          <li>Proposed a knowledge graph over the production Unity Catalog lineage so people could see how tables related instead of reading a relationships dashboard.</li>
+          </ul>
+        </div></div>
+        <div class="row deep"><span class="d">2024 – 2026</span><div><h4>Data Analytics Engineer and Storyteller</h4><div class="c">Abcam, part of Danaher · Cambridge</div>
+          <p class="lead">Abcam makes research antibodies and sells them to labs worldwide, and its product, order and stock data sat in on premise Oracle systems that were expensive, fragile and poor at talking to anything newer. I joined the data team to help get that data onto AWS, then onto Databricks, and to make sure the analysts and commercial teams who depended on it actually moved with it. The second part took longer than the first.</p>
+
+          <h5>Where it started, and why it had to move</h5><ul>
+          <li>Oracle ERP on premise with ODBC jobs feeding a Redshift warehouse, an Excel mapping sheet that defined what a product was, Kafka order events nobody downstream was reading, and duplicate product IDs that quietly halved the catalogue on a dashboard one morning.</li>
+          <li>When an Oracle job or an ODBC connector failed, everyone waited. Analysts had learnt not to trust the morning refresh and kept their own Excel copies, so the business ran on three versions of the truth. Connecting Oracle to newer tooling such as SnapLogic was slow and costly, and the licence bill made the case for AWS on its own.</li>
+          <li>Inventoried what was actually used before moving anything. Query logs and the catalogue showed a long tail of tables nobody had touched in a year, so those stayed behind and the migration scope was the tables that mattered.</li>
+          </ul>
+
+          <h5>Oracle to AWS, the Redshift phase</h5><ul>
+          <li>Followed the shape AWS recommends for this move, schema and code objects first, data second. The assessment told us what would convert cleanly, and the answer for the Oracle PL/SQL was not much. Stored procedures do not convert between engines, they get rewritten, and anyone who has done this migration will tell you the same.</li>
+          <li>So the logic was rebuilt, not ported. Extraction ran as PySpark and Glue jobs from Oracle into S3 with a load timestamp, then COPY into Redshift. Every table as it was, nothing filtered, so there was an auditable copy before anyone touched a row.</li>
+          <li>IAM roles for Redshift and S3 so each team could read what it should and nothing else, and a Redshift Spectrum layer over S3 for the big history tables that did not need to live in the cluster.</li>
+          <li>Airflow, with SnapLogic for the connectors it already handled, ran the nightly chain. A failed job retried and alerted rather than waiting for someone to notice at nine in the morning.</li>
+          </ul>
+
+          <h5>Redshift to Databricks, the lakehouse phase</h5><ul>
+          <li>One parameterised PySpark job that read information_schema and landed every table into bronze Delta, so adding a source was a row in a config table rather than a new notebook. Auto Loader for the files, JDBC for the warehouse, Kafka consumers for order and stock events so the streaming data finally had somewhere to go.</li>
+          <li>Rebuilt the transformation layer as dbt models with unique, not null and relationship tests. The Excel product mapping became a governed dbt seed with a relationship test to it, so a duplicate product ID fails the run in dev rather than appearing on a dashboard. Incremental MERGE for the large facts so the nightly run took minutes.</li>
+          <li>dim_product with surrogate keys and a current flag, an enriched product view, facts clustered on date and documented in dbt docs so a commercial analyst could read what each column meant without asking.</li>
+          <li>Airflow first, then Databricks Workflows, for the nightly chain. Pipeline monitoring that alerted before business hours, so a failure was fixed before anyone opened a report.</li>
+          <li>Cutover was validation, not a switch. Counts, sums and the top twenty queries proven side by side between Redshift and Databricks for two weeks, with each dashboard owner signing off their own numbers. Every business critical dashboard repointed with zero broken on the day, then Redshift switched off and Oracle after it.</li>
+          </ul>
+
+          <h5>Tableau, and getting a hundred people to use it</h5><ul>
+          <li>Reporting moved to Tableau in the same period, which meant every connection repointed, every workbook checked and a lot of people who had never opened Tableau. Ran quarterly training sessions for over a hundred people at a time across product, commercial and operations, from "where is my data" to building their own dashboards on the gold tables.</li>
+          <li>Tracked adoption properly. Who logged in, which workbooks were opened, which were built and never looked at, and which teams were still exporting to Excel. That list drove the next quarter's training and which dashboards were retired.</li>
+          <li>Built the licence cost model and the case for the tooling choice, Creator, Explorer and Viewer tiers against actual usage, so the business paid for the seats people used, and used the analyst quadrant and a cost comparison to make the case to leadership for where Tableau sat against the alternatives.</li>
+          <li>The storyteller half of the title. Took the numbers into the room, explained what changed and why, and showed a product manager why half the catalogue had vanished and how the test now stopped it.</li>
+          </ul>
+        </div></div>
+        <div class="row deep"><span class="d">2018 – 2024</span><div><h4>Senior Data Engineer</h4><div class="c">Citi · London</div>
+          <p class="lead">A bank where every number has a regulator behind it. The two pieces of work worth telling here are People Analytics, where candidate and employee data from Workday, Avature and a drawer full of spreadsheets had to become one trustworthy headcount, and legal and regulatory reporting, where a team was spending forty hours a week copying data out of systems that had no proper interface. Both ended the same way, a pipeline people stopped thinking about because it just ran.</p>
+
+          <h5>People Analytics, one candidate, one headcount</h5><ul>
+          <li>HR data lived in Workday, early careers recruiting in Avature, and the rest in team spreadsheets nobody had signed off. The same person appeared under different IDs in different systems, so three headcounts went to three meetings and the regulator wanted to know which one was right.</li>
+          <li>Designed a medallion architecture on Snowflake. Raw extracts landed as they arrived with a load timestamp, validated and conformed in silver, and a star schema in gold built around the questions HR and recruiting actually asked. Candidate, requisition, offer and employee as dimensions, applications and movements as facts.</li>
+          <li>Matching and deduplication on candidate identity across Workday and Avature, with tests on counts, mandatory fields and dates so a broken extract failed in development rather than in a board pack.</li>
+          <li>Personal data, so access was by role from the start. Recruiters saw their pipeline, HR business partners saw their population, leadership saw aggregates. Every number reconciled back to source, which is what the regulator asked for and what made the audit conversations short.</li>
+          <li>Two migrations ran at once. The data was moving into the Salesforce data lake while reporting moved from Power BI to Tableau, so every report was rebuilt and run side by side against the old one before anyone switched. HR stopped keeping their own copies, which was the real finish line.</li>
+          </ul>
+
+          <h5>Legal and regulatory reporting, forty hours a week to one run</h5><ul>
+          <li>EMIR, Dodd Frank and MiFID reporting depended on data in legal systems with no API documentation and no export worth the name. Analysts spent forty hours a week copying and pasting extracts, missed SLAs, and had no time left to analyse anything.</li>
+          <li>Reverse engineered the endpoints from the browser, then built a Python extraction framework rather than a script. Each source was a config block with its own authentication, token refresh and pagination, every pull validated on landing and logged step by step so the audit trail existed from the first load.</li>
+          <li>Pagination on one source silently dropped records. Caught by reconciling counts against the system of record, fixed by asserting totals on every run, and that reconciliation became the standard for every source after it.</li>
+          <li>One scheduled run with alerts replaced the forty hours. SLA breaches fell by forty percent, and the analysts went back to being analysts.</li>
+          <li>Modelled so other teams could use it, which is why Global Markets adopted the pipeline for their own reporting. Recognised with the Innovation Award and three Gold Gratitude Awards.</li>
+          </ul>
+
+          <h5>How the work was done</h5><ul>
+          <li>Git, code review and a dev to UAT to production promotion path for every change, with sign off from the business owner before anything touched production reporting.</li>
+          <li>Documentation written as the pipeline was built, so the handover when I moved on was a repository and a runbook rather than a series of calls.</li>
+          <li>This was when LLMs first appeared, and they played a small part. Useful for first drafts of API client code and for test scripts that compared counts between systems, which is how the duplicate IDs were found. Nowhere near the data or the decisions.</li>
+          </ul>
+          <p class="note">Multiple roles at Citi from 2018 to 2021 before this, including Data Analyst in New York.</p>
+        </div></div>
+        <div class="row"><span class="d">2014 – 2018</span><div><h4>Data Associate, then BI Engineer</h4><div class="c">DLL Group, part of Rabobank</div></div></div>
+      </div>
+
+      <div class="pane" id="p-edu"><ul class="list">
+        <li>BSc Mathematics<small>The Open University</small></li>
+        <li>MSc Predictive Modelling and Scientific Computing<small>University of Warwick</small></li>
+      </ul></div>
+    </div>
+
+    <aside class="aside">
+      <div class="blk"><a href="mailto:data.rameez.raja@gmail.com?subject=Hello%20Rameez">data.rameez.raja@gmail.com</a></div>
+      <div class="dash">—</div>
+      <div class="blk">Roles and collaborations:<br><a href="mailto:data.rameez.raja@gmail.com?subject=Opportunity">data.rameez.raja@gmail.com</a></div>
+      <div class="dash">—</div>
+      <div class="blk">Aleatoric Lab<br>United Kingdom</div>
+      <a class="big" href="#" id="lab">Aleatoric Lab <span>↗</span></a>
+    </aside>
+  </div>
+</main>
+
+<script>
+(function(){var tabs=document.querySelectorAll('#tabs .tab[data-p]'),panes=document.querySelectorAll('.pane');tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');panes.forEach(function(p){p.classList.toggle('on',p.id==='p-'+t.dataset.p);});var bio=document.querySelector('.bio');bio.style.display=t.dataset.p==='bio'?'':'none';});});})();
+</script>
+</body>
+</html>
