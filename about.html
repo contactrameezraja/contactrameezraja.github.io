@@ -181,7 +181,7 @@ nav li.cta a{border-color:var(--ink);color:var(--ink);padding:8px 14px}
   </form>
 </div>
 <script>(function(){
-var NOTIFY='https://formsubmit.co/ajax/data.rameez.raja@gmail.com',FILE='Rameez_Raja_CV.pdf';
+var NOTIFY='https://api.web3forms.com/submit',KEY='91eca416-5a5d-4d2f-9b87-5c83c0ec48f0',FILE='Rameez_Raja_CV.pdf';
 var g=document.getElementById('gate'),f=document.getElementById('gform'),m=document.getElementById('gm'),b=document.getElementById('gs');
 function open(e){e.preventDefault();g.classList.add('on');document.getElementById('gn').focus();}
 function close(){g.classList.remove('on');m.textContent='';b.disabled=false;}
@@ -197,7 +197,7 @@ if(f._honey.value){close();return;}
 b.disabled=true;m.textContent='One moment.';
 var done=false;function finish(){if(done)return;done=true;dl();m.textContent='Thanks '+n.split(' ')[0]+', your download has started.';setTimeout(close,2200);}
 var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone;}catch(_){}
-function send(loc){return fetch(NOTIFY,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'CV download · '+n+(c?' · '+c:'')+(loc?' · '+loc:''),name:n,email:em,company:c||'not given',location:loc||'unknown',timezone:tz||'unknown',when:new Date().toString(),page:location.href,_template:'table',_captcha:'false'})});}
+function send(loc){return fetch(NOTIFY,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:KEY,subject:'CV download · '+n+(c?' · '+c:'')+(loc?' · '+loc:''),from_name:'rr. website',name:n,email:em,company:c||'not given',location:loc||'unknown',timezone:tz||'unknown',when:new Date().toString(),page:location.href})});}
 var geo=fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(j){return [j.city,j.region,j.country_name].filter(Boolean).join(', ');}).catch(function(){return '';});
 var cap=new Promise(function(res){setTimeout(function(){res('');},1800);});
 Promise.race([geo,cap]).then(send).then(finish,finish);
