@@ -255,7 +255,8 @@ body.hasmenu section .wrap,body.hasmenu footer .wrap{margin-left:max(24px,calc((
 .cn em{font-style:normal;font-size:14px;color:var(--mute);line-height:1.35}
 .cn:hover,.cn.on{border-color:rgba(255,255,255,.32);background:#18181b;transform:translateY(-2px)}
 .cn.on em{color:var(--ink)}
-.cdet{margin-top:14px;min-height:120px}
+.cdet{margin-top:14px;min-height:0}
+.case.open .cdet{min-height:120px}
 .cdin{display:grid;grid-template-columns:minmax(220px,1fr) 1.4fr;gap:28px;align-items:start;padding:18px 4px 0;border-top:1px solid var(--line);animation:storyin .35s ease}
 .cdin .hint{grid-column:1/-1;font-size:13px;color:var(--mute);opacity:.7}
 .cdin .dl b{font-weight:500;color:var(--ink);font-size:15px}
@@ -325,7 +326,8 @@ section{border-top:1px solid var(--line)}
 </header>
 
 <section class="hero" id="top" style="border-top:0">
-  <video id="vid" autoplay muted loop playsinline preload="auto" poster="poster.jpg"><source src="hero12.mp4" type="video/mp4"></video>
+  <video id="vid" autoplay muted loop playsinline preload="auto" poster="poster.jpg"></video>
+  <script>(function(){var v=document.getElementById('vid'),wide=window.innerWidth>window.innerHeight;if(wide)v.poster='poster-wide.jpg';var so=document.createElement('source');so.src=wide?'hero-wide.mp4':'hero12.mp4';so.type='video/mp4';v.appendChild(so);})();</script>
   
   <div class="scenes">
     <div class="scard" data-from="0" data-to="11.6">
@@ -354,8 +356,9 @@ section{border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="eyebrow">Rameez Raja · United Kingdom</div>
     <h1>Messy sources in. <span>Trusted data</span> out.</h1>
-    <p>I'm a data and analytics engineer, but I started as an analyst, and that's still how I work. Before I touch a pipeline I want to know who's waiting on the number and what they'll do with it. That means sitting with the sales team in Spain, the finance team in the Netherlands, the product owner with the spreadsheet nobody dares to delete, and designing the model backwards from the decision.</p>
-    <p>The platforms I build on, Databricks, dbt, Snowflake, are just the means. The job is getting data people can trust into the room where it matters, and knowing when to push back on a number everyone already believes.</p>
+    <p>I started out as an analyst. What hooked me was the idea that behind every number is a story, and that the job is getting that story to the people who need it.</p>
+    <p>Then the questions changed. How does a number actually reach Power BI or Tableau? What happens when it breaks, and why did nobody notice? Chasing those answers is what pulled me into engineering.</p>
+    <p>Today I work on both sides. The people I build for don't talk in pipelines or fields. They talk in numbers, and they want answers that are clear and short. So I build with them in the room, and I make sure what lands in front of them is something they can trust and act on.</p>
   </div>
 </section>
 
@@ -363,7 +366,7 @@ section{border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="label"><span class="n">[01]</span><span class="t">The Pipeline</span></div>
     <h2 class="reveal" id="journey">What the journey looks like.</h2>
-    <p class="sub reveal">Three migrations, the same shape every time. Messy sources in, one trusted layer out, and people actually using it.</p>
+    <p class="sub reveal">Most of my career has been migrations, moving data out of legacy systems and into something newer. They take time and a lot of planning, but they all end in the same place, one source everyone goes to. The pipeline is only half of it though. I work end to end, getting the data ready and then presenting it, because how a number is shown matters as much as how it got there. Here are three from my recent work. <span id="howtip">Hover over</span> a stage to see how it was done.</p>
     <div id="cases"></div>
     <div class="rail reveal lit"><span>Designed with</span><b>The people who use it</b><span>Runs on</span><b>Databricks Workflows · Airflow</b><span>Promoted through</span><b>Git · CI · dev → uat → prod</b></div>
   </div>
@@ -482,7 +485,7 @@ section{border-top:1px solid var(--line)}
 
 <script>
 (function(){var v=document.getElementById('vid'),cards=document.querySelectorAll('.scard');if(!v)return;var bars=document.querySelectorAll('.bars span i');function tick(){var t=v.currentTime,d=v.duration||33.4;cards.forEach(function(c,i){var a=parseFloat(c.dataset.from),b=Math.min(parseFloat(c.dataset.to),d);c.classList.toggle('on',t>=a+0.4&&t<b);if(bars[i]){var p=t<a?0:(t>=b?1:(t-a)/(b-a));bars[i].style.width=(p*100)+'%';}});}v.addEventListener('timeupdate',tick);v.addEventListener('seeked',tick);tick();})();
-(function(){var host=document.getElementById('cases');if(!host)return;
+(function(){var host=document.getElementById('cases');if(!host)return;var ht=document.getElementById('howtip');if(ht&&!window.matchMedia('(hover:hover)').matches)ht.textContent='Tap';
 var D={
 shell:{q:"“What’s my closed won volume this quarter?”",a:"One number, the same in every market, asked in Teams.",
  sA:"At Shell Energy I worked on a migration from Salesforce into Databricks, the Customer 360 project. Five countries across Europe, each using Salesforce differently, and the goal was to consolidate everything in one place to give one view of the customer.",
@@ -514,7 +517,7 @@ function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 var c=document.createElement('article');c.className='case reveal';
 var h='<div class="chead"><h3><img class="lg lg-'+key+'" src="'+x.lg+'" alt="'+x.t+'">'+(x.lg2?'<img class="lg lg2" src="'+x.lg2+'" alt="part of Danaher">':'')+'</h3><span>'+x.m+'</span></div><p class="cprob">'+esc(x.p)+'</p><div class="crow">';
 N.forEach(function(n,i){h+='<button class="cn '+cls[i]+'" data-i="'+i+'"><i>'+n[0]+'</i><b>'+n[1]+'</b><em>'+esc(x.k[i])+'</em></button>';});
-h+='</div><div class="cdet"><div class="cdin"><p class="hint">'+(window.matchMedia('(hover:hover)').matches?'Hover':'Tap')+' a stage to see how it was built.</p></div></div>';
+h+='</div><div class="cdet"><div class="cdin"><p class="hint"></p></div></div>';
 if(key==='shell'){h+='<div class="cai"><span class="cail">Where AI helped</span><div class="caid">';d.ai.d.forEach(function(a,i){h+='<button class="ad" data-a="'+i+'"><i style="--r:'+a[0]+'px"></i><span>'+esc(a[1])+'</span></button>';});h+='</div><p class="cail2">'+esc(d.ai.l)+'</p></div>';}
 h+='<p class="cres"><span>Result</span>'+esc(x.r)+'</p>';
 c.innerHTML=h;host.appendChild(c);
