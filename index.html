@@ -33,6 +33,18 @@ nav ul{gap:10px}
 
 .hero{position:relative;height:78svh;min-height:420px;overflow:hidden;background:#0a0710;padding:0}
 #vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero.panel{background:#000}
+.hero.panel #vid{inset:0 0 0 50%;width:50%;height:100%;object-fit:cover;object-position:center}
+.hero.panel .scard,.hero.panel .bars{left:4vw;width:calc(46vw - 56px)}
+.hero.panel .scenes{top:0;padding:0}
+.hero.panel .scard{top:50%;bottom:auto;padding:0;border-radius:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;transform:translateY(calc(-50% + 12px))}
+.hero.panel .scard.on{transform:translateY(-50%)}
+.hero.panel .scard .eyebrow{font-size:12px;margin-bottom:18px;color:rgba(255,255,255,.7)}
+.hero.panel .scard h2,.hero.panel .scard h2.one{font-size:clamp(40px,4.7vw,78px);line-height:1.03;letter-spacing:-.03em;white-space:normal;max-width:none}
+.hero.panel .scard p{font-size:clamp(16px,1.4vw,20px);margin-top:20px;max-width:40ch;color:rgba(255,255,255,.78)}
+.hero.panel .scard .sbtn{display:inline-block;margin-top:30px;padding:14px 28px;border-radius:999px}
+.hero.panel .bars{bottom:40px;width:min(320px,30vw)}
+@media(orientation:landscape){header .wrap{max-width:none;padding:0 4vw}}
 .hero .credit{position:absolute;right:16px;bottom:12px;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.04em}
 .scenes{position:absolute;left:0;right:0;bottom:0;padding:0 20px 44px;pointer-events:none}
 .scard{position:absolute;left:20px;bottom:58px;width:min(560px,calc(100% - 40px));padding:22px 24px 24px;border-radius:14px;background:rgba(18,38,40,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease;pointer-events:none;font-family:Inter,system-ui,sans-serif}
@@ -327,7 +339,7 @@ section{border-top:1px solid var(--line)}
 
 <section class="hero" id="top" style="border-top:0">
   <video id="vid" autoplay muted loop playsinline preload="auto" poster="poster.jpg"></video>
-  <script>(function(){var v=document.getElementById('vid'),wide=window.innerWidth>window.innerHeight;if(wide)v.poster='poster-wide.jpg';var so=document.createElement('source');so.src=wide?'hero-wide.mp4':'hero12.mp4';so.type='video/mp4';v.appendChild(so);})();</script>
+  <script>(function(){var v=document.getElementById('vid'),wide=window.innerWidth>window.innerHeight;if(wide)v.parentNode.className+=' panel';var so=document.createElement('source');so.src=wide?'hero-square.mp4':'hero12.mp4';if(wide)v.poster='poster-square.jpg';so.type='video/mp4';v.appendChild(so);})();</script>
   
   <div class="scenes">
     <div class="scard" data-from="0" data-to="11.6">
