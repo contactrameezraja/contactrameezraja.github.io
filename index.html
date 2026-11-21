@@ -321,6 +321,71 @@ section{border-top:1px solid var(--line)}
 .cdin{border-top:0}
 .credhead{margin-top:56px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 #capabilities .cred{margin-top:18px}
+
+/* Juliano round two: light reading sections, colours taken from the video, nothing hidden */
+section:not(.hero){--bg:#f5f4ef;--ink:#131313;--mute:#57554f;--soft:#ffffff;--line:rgba(0,0,0,.13);--accent:#cf1a72;background:var(--bg);color:var(--ink)}
+.intro p{color:#33322e;font-weight:400}
+.intro .eyebrow{color:var(--mute)}
+.sub{color:#33322e}
+.case .lg{filter:invert(1)}
+.case .cprob{color:#33322e}
+.quote p{font-weight:400}
+.cols li{color:#33322e}
+.hrow p{color:#33322e}
+.xbar i:after{background:linear-gradient(90deg,#6d3bff,#e0218a)}
+.steps{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
+.st{display:grid;grid-template-columns:240px 1fr;gap:28px;padding:16px 0 16px 18px;border-bottom:1px solid var(--line);position:relative}
+.st::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:3px;background:var(--c,#8a8a8a)}
+.st.src{--c:#8a8a8a}.st.b{--c:#6d3bff}.st.s{--c:#a52be0}.st.g{--c:#e0218a}.st.out{--c:#ff4d2e}
+.sth i{display:block;font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--mute)}
+.sth b{display:block;font-weight:600;font-size:16px;margin-top:2px}
+.sth em{display:block;font-style:normal;font-size:14px;color:var(--mute)}
+.st p{font-size:16px;line-height:1.55;color:var(--ink);max-width:66ch}
+.aibox{margin-top:22px;padding:22px 24px;background:var(--soft);border-radius:14px}
+.aibox h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.aibox ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 32px;margin-top:14px}
+.aibox li{font-size:14.5px;line-height:1.5;color:#33322e}
+.aibox li b{display:block;font-weight:600;color:var(--ink)}
+.aibox p{margin-top:16px;font-size:15px;font-weight:500}
+#support .split{grid-template-columns:1fr;gap:0}
+#support .hrow{grid-template-columns:60px 1fr 1.15fr;gap:14px 40px;padding:24px 0;border-top:1px solid var(--line)}
+.how span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+.how ul{list-style:none;display:grid;gap:6px}
+.how li{font-size:14.5px;line-height:1.45;color:#33322e;padding-left:14px;position:relative}
+.how li:before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--accent)}
+.how small{display:block;margin-top:10px;font-size:12.5px;color:var(--mute)}
+#support .side{position:static;margin-top:36px}
+#support .panel{border-left:0;padding:26px 28px;background:var(--soft);border-radius:14px;min-height:0}
+#support .panel ul{grid-template-columns:1fr 1fr;gap:10px 32px}
+#support .panel li{font-weight:400}
+@media(max-width:860px){.st{grid-template-columns:1fr;gap:6px}.aibox ul{grid-template-columns:1fr}#support .hrow{grid-template-columns:1fr}#support .hrow .i{display:none}#support .panel ul{grid-template-columns:1fr}}
+
+#cases{gap:96px}
+.prow{display:grid;grid-template-columns:56px 1fr 1fr;gap:26px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.case .chead{margin-bottom:22px}
+.prow.full{grid-template-columns:56px 1fr;align-items:start}
+.prow .num{font-weight:300;font-size:44px;color:var(--accent);line-height:1;align-self:start}
+.prow h4{font-weight:300;font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.prow>div>p{font-size:16.5px;line-height:1.6;color:#33322e;max-width:46ch}
+.case figure{background:var(--soft);border-radius:16px;padding:20px 22px 18px}
+.case figure svg{display:block;width:100%;height:auto}
+.case figure text{font-family:Inter,system-ui,sans-serif}
+.case figcaption{font-size:15px;color:#33322e;margin-top:8px}
+.flab{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:8px;color:#8a8a8a}
+.fa .flab{color:var(--accent)}
+.dcards{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}
+.dcards>li{background:var(--soft);border-radius:14px;padding:16px 16px 18px;border-top:4px solid var(--c)}
+.dcards>li.src{--c:#8a8a8a}.dcards>li.b{--c:#6d3bff}.dcards>li.s{--c:#a52be0}.dcards>li.g{--c:#e0218a}.dcards>li.out{--c:#ff4d2e}
+.dcards i{font-style:normal;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;display:block}
+.dcards b{display:block;font-size:19px;font-weight:600;margin:4px 0 8px}
+.dcards p{font-size:14px;line-height:1.5;color:#33322e}
+.dcards ul{list-style:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.dcards ul li{padding:3px 0 3px 14px;position:relative;font-size:13px;color:#33322e}
+.dcards ul li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--c)}
+.prow .aibox{margin-top:14px}
+.prow .aibox h4{font-size:11px;letter-spacing:.14em;font-weight:600;margin-bottom:0}
+@media(max-width:900px){.prow,.prow.full{grid-template-columns:1fr;gap:12px}.prow .num{font-size:34px}.fw{display:none}.dcards{grid-template-columns:1fr}.dcards>li{border-top:0;border-left:4px solid var(--c);border-radius:0 14px 14px 0}}
+section:not(.hero) p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 </style>
 </head>
 <body>
@@ -343,9 +408,9 @@ section{border-top:1px solid var(--line)}
   
   <div class="scenes">
     <div class="scard" data-from="0" data-to="11.6">
-      <div class="eyebrow">Hey, I'm Rameez</div>
-      <h2 class="one">Problem solver × Data storyteller</h2>
-      <p>Twelve years turning messy source systems into data people trust.</p>
+      <div class="eyebrow">Data engineer · Portfolio</div>
+      <h2 class="one">Hey, I'm Rameez.</h2>
+      <p>Problem solver × data storyteller. Twelve years turning messy source systems into data people trust.</p>
       <a href="#about" class="sbtn">DISCOVER MY WORK</a>
     </div>
     <div class="scard" data-from="11.6" data-to="22.8">
@@ -378,7 +443,7 @@ section{border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="label"><span class="n">[01]</span><span class="t">The Pipeline</span></div>
     <h2 class="reveal" id="journey">What the journey looks like.</h2>
-    <p class="sub reveal">Most of my career has been migrations, moving data out of legacy systems and into something newer. They take time and a lot of planning, but they all end in the same place, one source everyone goes to. The pipeline is only half of it though. I work end to end, getting the data ready and then presenting it, because how a number is shown matters as much as how it got there. Here are three from my recent work. <span id="howtip">Hover over</span> a stage to see how it was done.</p>
+    <p class="sub reveal">Most of my career has been migrations, moving data out of legacy systems and into something newer. They take time and a lot of planning, but they all end in the same place, one source everyone goes to. The pipeline is only half of it though. I work end to end, getting the data ready and then presenting it, because how a number is shown matters as much as how it got there. Here are three from my recent work.</p>
     <div id="cases"></div>
     <div class="rail reveal lit"><span>Designed with</span><b>The people who use it</b><span>Runs on</span><b>Databricks Workflows · Airflow</b><span>Promoted through</span><b>Git · CI · dev → uat → prod</b></div>
   </div>
@@ -471,7 +536,7 @@ section{border-top:1px solid var(--line)}
             <li>I show the business when a number they trust is wrong.</li>
             <li>I document as I go, so nothing depends on me being in the room.</li>
           </ul>
-          <div class="pf" id="pf">Hover an outcome to see how it gets done.</div>
+          <div class="pf" id="pf" hidden></div>
         </div>
       </aside>
     </div>
@@ -502,8 +567,8 @@ var D={
 shell:{q:"“What’s my closed won volume this quarter?”",a:"One number, the same in every market, asked in Teams.",
  sA:"At Shell Energy I worked on a migration from Salesforce into Databricks, the Customer 360 project. Five countries across Europe, each using Salesforce differently, and the goal was to consolidate everything in one place to give one view of the customer.",
  sB:"It was never just about getting the data in. Most of what I’ve learnt is that you can build the tool and nobody uses it, so this was as much about getting people to use it as building it. This is the pipeline and how it was approached.",
- n:[["Salesforce CRM, one per market","Ad hoc spreadsheets","Junifer billing","SAP","Three numbers, no single truth"],["Every object, as is","One API pull","Load timestamp","Nothing filtered","Delta, append"],["dbt models, not SQL scripts","Descriptions on every column","Cleaning and deduplication","Tests on every key","Reconciliation scripts"],["Enriched views","Shaped for each consumer","Unity Catalog lineage","Grants and row level visibility","One definition of closed won"],["Genie in Teams","Power BI","AI and ML agents","Same source for everyone"]],
- c:["Every country doing its own thing. Multiple reports, three different numbers, no one version of the truth. Account managers skipping fields because nothing ever came back to them, so the data wasn’t even there.","Land it all first, in one pull. Cheaper than picking fields, and when someone starts using a new one it’s already there.","dbt instead of loose SQL. Documented, cleaned, tested, with scripts that check the numbers match what the markets already report.","Views built around the question, not the table. Unity Catalog shows exactly where every number came from.","A sales manager in Spain asks in Teams and gets the same answer as one in Rotterdam. Everyone reads from one place."],
+ n:[["Salesforce CRM, one per market","Ad hoc spreadsheets","Junifer billing","SAP","Three numbers, no single truth"],["Salesforce REST API, one pull", "Every object, as is", "Load timestamp on every row, so we know when it arrived", "Nothing filtered or renamed", "Stored as Delta tables, append only"],["dbt models, not SQL scripts", "Cleaning and deduplication", "SQL linting on every change", "Tests on every key", "Descriptions on every column", "Reconciliation scripts", "All built in dev first"],["Enriched views", "One definition of closed won", "Tested in UAT with the business", "Promoted dev to UAT to prod", "Final numbers checked in DataGrip", "Unity Catalog lineage", "Grants and row level visibility"],["Genie in Teams","Power BI","AI and ML agents","Same source for everyone"]],
+ c:["Every country doing its own thing. Multiple reports, three different numbers, no one version of the truth. Account managers skipping fields because nothing ever came back to them, so the data wasn’t even there.","Every Salesforce object (Account, Opportunity, Contact and the rest) pulled through the Salesforce REST API into Databricks in one run. One pull is cheaper than picking fields, and when someone needs a new field it is already there.","dbt models in place of loose SQL, built and tested in dev first. Cleaned, deduplicated and linted, with checks that the numbers match what each market already reports.","Enriched views built around the question, not the table. Tested with the business in UAT, then promoted to prod, with the final numbers checked in DataGrip. Unity Catalog shows where every number came from.","A sales manager in Spain asks in Teams and gets the same answer as one in Rotterdam. Everyone reads from one place."],
  ai:{i:"AI and LLMs are entering this process now, and my view is that where it helps we should be using it. This is where I used it on Customer 360.",d:[[8,"Profiling empty fields","Ran an LLM over the Salesforce schema and fill rates per market to flag which fields were blank, and wrote the first draft of the questions back to each country."],[7,"Loader code, schemas","Generated the PySpark loaders and Delta schemas for every object from the API metadata, then reviewed and fixed by hand."],[12,"Tests, descriptions","Drafted dbt tests and column descriptions for every silver model, and translated reconciliation SQL between dialects."],[5,"View boilerplate","Only the scaffolding of the gold views. What closed won means, and at what grain, stayed a human decision."],[14,"Genie, agents","Genie on the gold tables so a question in Teams gets an answer, with the instructions tested line by line in UAT."]],l:"AI took the typing. The modelling, and the conversations with each market, stayed human."}},
 abcam:{q:"“Why can’t I see any data? When will it be loaded?”",a:"Data that’s there every morning, in Tableau, with nobody asking.",
  sA:"At Abcam the data sat in on premise Oracle systems. Expensive to run, poor at connecting to newer tools like SnapLogic, and when an Oracle job or an ODBC connector failed everyone waited. The move was to AWS, with Redshift as the warehouse.",
@@ -523,24 +588,40 @@ shell:{t:"Shell Energy",lg:"shell.png",m:"Customer 360 on Databricks · 2026",p:
 abcam:{t:"Abcam",lg:"abcam.png",lg2:"danaher.png",m:"Oracle to AWS and Databricks · 2024 to 2026",p:"Oracle down, analysts on Excel, half the catalogue missing.",r:"Data there every morning, in Tableau, with nobody asking.",k:["Oracle on premise","S3, then Redshift","dbt, tested","Products, governed","Tableau, every morning"]},
 citi:{t:"Citi",lg:"citi.png",m:"People Analytics · Workday to Salesforce",p:"Three systems, three headcounts, a regulator asking which is right.",r:"One headcount, with an audit trail the regulator accepts.",k:["Workday, Avature","Config, logged","One candidate","Role based access","Tableau, rebuilt"]}
 };
+var STORY={
+shell:{intro:"Shell Energy Europe sells to businesses in five countries, and all five ran their sales in Salesforce. The trouble was that each country used it its own way. One market logged every deal in Salesforce as it happened. Another kept much of its pipeline in a spreadsheet and only updated Salesforce afterwards. So a simple question like “how much did we sell this quarter” got three different answers depending on who you asked.",src:["UK","Netherlands","Spain","Italy","Germany"],outs:["Report 1","Report 2","Report 3"],bcap:"Five Salesforces, three reports, three different numbers.",mid:["One model","Databricks · dbt"],out:["One number","Teams · Power BI"],acap:"Five Salesforces, one model, one number everyone uses.",res:"A sales manager in Spain asks in Teams and gets the same number as one in Rotterdam. The knowledge that used to live in people’s heads and side spreadsheets now sits in the enriched views, one place for everyone. Every definition is written down and every number can be traced back to its source, so when someone moves on the answers do not leave with them."},
+abcam:{intro:"Abcam sells research products to scientists around the world. Its product and order data sat in an old on premise Oracle system that was often down, so analysts kept their own Excel copies to get their work done, and no two copies matched.",src:["Oracle ERP","Order streams","Excel mappings"],outs:["Excel copy","Excel copy","Excel copy"],bcap:"One fragile system, and everyone working from their own copy.",mid:["One warehouse","AWS · dbt"],out:["Tableau","Every morning"],acap:"One warehouse, tested, feeding the same Tableau for everyone.",res:"The data is there every morning, in Tableau, with nobody asking where it is. Oracle was switched off, and the spreadsheet copies went with it. (Sadly, so did my contract. The job was done.)"},
+citi:{intro:"Citi’s HR teams tracked candidates and employees in three places. Workday, Avature for early careers, and spreadsheets kept on the side. Each gave a different headcount, and the regulator wanted to know which one was right.",src:["Workday","Avature","Spreadsheets"],outs:["Headcount A","Headcount B","Headcount C"],bcap:"Three systems, three headcounts, no clean answer.",mid:["One model","Tested · audited"],out:["One headcount","Tableau"],acap:"Three systems, one model, one headcount with an audit trail.",res:"One headcount, with an audit trail the regulator accepts. Every report was rebuilt in Tableau and proven against the old one before anyone switched."}
+};
 var N=[["00", "Sources", ""], ["01", "Bronze", "Land"], ["02", "Silver", "Transform"], ["03", "Gold", "Serve"], ["04", "Consumers", ""]],cls=['src','b','s','g','out'];
 function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 ['shell','abcam','citi'].forEach(function(key){var d=D[key],x=X[key];
 var c=document.createElement('article');c.className='case reveal';
-var h='<div class="chead"><h3><img class="lg lg-'+key+'" src="'+x.lg+'" alt="'+x.t+'">'+(x.lg2?'<img class="lg lg2" src="'+x.lg2+'" alt="part of Danaher">':'')+'</h3><span>'+x.m+'</span></div><p class="cprob">'+esc(x.p)+'</p><div class="crow">';
-N.forEach(function(n,i){h+='<button class="cn '+cls[i]+'" data-i="'+i+'"><i>'+n[0]+'</i><b>'+n[1]+'</b><em>'+esc(x.k[i])+'</em></button>';});
-h+='</div><div class="cdet"><div class="cdin"><p class="hint"></p></div></div>';
-if(key==='shell'){h+='<div class="cai"><span class="cail">Where AI helped</span><div class="caid">';d.ai.d.forEach(function(a,i){h+='<button class="ad" data-a="'+i+'"><i style="--r:'+a[0]+'px"></i><span>'+esc(a[1])+'</span></button>';});h+='</div><p class="cail2">'+esc(d.ai.l)+'</p></div>';}
-h+='<p class="cres"><span>Result</span>'+esc(x.r)+'</p>';
+var S=STORY[key],PL=['Where it started','Collect','Clean','Shape','Use'];
+function ys(n){var o=[],gap=n>4?48:(n>3?56:66),top=(250-(n-1)*gap-34)/2;for(var i=0;i<n;i++)o.push(top+i*gap);return o;}
+function srcs(fill,stroke,ink){var y=ys(S.src.length),g='';S.src.forEach(function(t,i){g+='<rect x="10" y="'+y[i]+'" width="130" height="34" rx="8" fill="'+fill+'" stroke="'+stroke+'"/><text x="75" y="'+(y[i]+22)+'" text-anchor="middle" font-size="13" fill="'+ink+'">'+esc(t)+'</text>';});return g;}
+function before(){var y=ys(S.src.length),oy=[30,105,180],g=srcs('#e7e5dd','#8a8a8a','#3d3c37');
+oy.forEach(function(v,i){g+='<rect x="380" y="'+v+'" width="130" height="40" rx="8" fill="#e7e5dd" stroke="#8a8a8a"/><text x="445" y="'+(v+25)+'" text-anchor="middle" font-size="13" fill="#3d3c37">'+esc(S.outs[i])+'</text>';});
+var pr=[[0,2],[0,1],[1,0],[2,2],[2,0],[3,1],[4,0],[4,2],[1,2]];pr.forEach(function(q){if(q[0]<y.length)g+='<path d="M140 '+(y[q[0]]+17)+' C260 '+(y[q[0]]+17)+' 260 '+(oy[q[1]]+20)+' 380 '+(oy[q[1]]+20)+'" fill="none" stroke="#8a8a8a" stroke-width="1.4" stroke-dasharray="4 4"/>';});
+return '<svg viewBox="0 0 520 250" role="img" aria-label="'+esc(S.bcap)+'">'+g+'</svg>';}
+function after(){var y=ys(S.src.length),g=srcs('#f5f4ef','#131313','#131313');
+y.forEach(function(v,i){g+='<path d="M140 '+(v+17)+' C185 '+(v+17)+' 175 '+(123+(i-(y.length-1)/2)*7)+' 220 '+(123+(i-(y.length-1)/2)*7)+'" fill="none" stroke="#131313" stroke-width="1.4"/>';});
+g+='<rect x="220" y="88" width="120" height="70" rx="10" fill="#131313"/><text x="280" y="119" text-anchor="middle" font-size="13" fill="#fff">'+esc(S.mid[0])+'</text><text x="280" y="138" text-anchor="middle" font-size="11" fill="#fff" opacity=".75">'+esc(S.mid[1])+'</text><path d="M340 123 L385 123" stroke="#cf1a72" stroke-width="2"/><rect x="385" y="98" width="125" height="50" rx="10" fill="#cf1a72"/><text x="447" y="128" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">'+esc(S.out[0])+'</text>';
+return '<svg viewBox="0 0 520 250" role="img" aria-label="'+esc(S.acap)+'">'+g+'</svg>';}
+function wide(){var y=ys(S.src.length),g=srcs('#f5f4ef','#131313','#131313'),bx=[[240,'#6d3bff','BRONZE','Collect'],[460,'#a52be0','SILVER','Clean'],[680,'#e0218a','GOLD','Shape']];
+y.forEach(function(v,i){g+='<path d="M140 '+(v+17)+' C200 '+(v+17)+' 190 '+(123+(i-(y.length-1)/2)*9)+' 240 '+(123+(i-(y.length-1)/2)*9)+'" fill="none" stroke="#131313" stroke-width="1.4"/>';});
+bx.forEach(function(q){g+='<rect x="'+q[0]+'" y="78" width="150" height="90" rx="12" fill="'+q[1]+'"/><text x="'+(q[0]+75)+'" y="116" text-anchor="middle" font-size="12" fill="#fff" opacity=".8" letter-spacing="1.5">'+q[2]+'</text><text x="'+(q[0]+75)+'" y="140" text-anchor="middle" font-size="17" font-weight="600" fill="#fff">'+q[3]+'</text>';});
+g+='<path d="M390 123 L460 123M610 123 L680 123M830 123 L890 123" stroke="#131313" stroke-width="1.4"/><rect x="890" y="88" width="160" height="70" rx="12" fill="#131313"/><text x="970" y="119" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">'+esc(S.out[0])+'</text><text x="970" y="139" text-anchor="middle" font-size="11" fill="#fff" opacity=".75">'+esc(S.out[1])+'</text>';
+return '<svg viewBox="0 0 1060 250" role="img" aria-label="Sources flowing through bronze, silver and gold">'+g+'</svg>';}
+var h='<div class="chead"><h3><img class="lg lg-'+key+'" src="'+x.lg+'" alt="'+x.t+'">'+(x.lg2?'<img class="lg lg2" src="'+x.lg2+'" alt="part of Danaher">':'')+'</h3><span>'+x.m+'</span></div>';
+h+='<div class="prow"><span class="num">1</span><div><h4>The problem</h4><p>'+esc(S.intro)+'</p></div><figure class="fb"><span class="flab">Before</span>'+before()+'<figcaption>'+esc(S.bcap)+'</figcaption></figure></div>';
+h+='<div class="prow full"><span class="num">2</span><div><h4>What I did</h4><figure class="fw">'+wide()+'</figure><ol class="dcards">';
+N.forEach(function(n,i){h+='<li class="'+cls[i]+'"><i>'+n[1]+'</i><b>'+PL[i]+'</b><p>'+esc(d.c[i])+'</p><ul>'+d.n[i].map(function(z){return '<li>'+esc(z)+'</li>';}).join('')+'</ul></li>';});
+h+='</ol>';
+if(key==='shell'){h+='<div class="aibox"><h4>Where AI helped</h4><ul>';d.ai.d.forEach(function(a){h+='<li><b>'+esc(a[1])+'</b>'+esc(a[2])+'</li>';});h+='</ul><p>'+esc(d.ai.l)+'</p></div>';}
+h+='</div></div>';
+h+='<div class="prow"><span class="num">3</span><div><h4>The result</h4><p>'+esc(S.res)+'</p></div><figure class="fa"><span class="flab">After</span>'+after()+'<figcaption>'+esc(S.acap)+'</figcaption></figure></div>';
 c.innerHTML=h;host.appendChild(c);
-var det=c.querySelector('.cdin'),hint=det.innerHTML;
-function show(html,el){det.innerHTML=html;c.querySelectorAll('.cn,.ad').forEach(function(b){b.classList.toggle('on',b===el);});c.classList.add('open');}
-function reset(){det.innerHTML=hint;c.querySelectorAll('.cn,.ad').forEach(function(b){b.classList.remove('on');});c.classList.remove('open');}
-c.querySelectorAll('.cn').forEach(function(b){var i=+b.dataset.i;var html='<div class="dl"><b>'+N[i][1]+(N[i][2]?' <small>'+N[i][2]+'</small>':'')+'</b><ul>'+d.n[i].map(function(z){return '<li>'+esc(z)+'</li>';}).join('')+'</ul></div><p class="dc">'+esc(d.c[i])+'</p>';
-b.addEventListener('mouseenter',function(){show(html,b);});b.addEventListener('focus',function(){show(html,b);});b.addEventListener('click',function(){show(html,b);});});
-c.querySelectorAll('.ad').forEach(function(b){var a=d.ai.d[+b.dataset.a];var html='<div class="dl"><b>AI · '+esc(a[1])+'</b></div><p class="dc">'+esc(a[2])+'</p>';
-b.addEventListener('mouseenter',function(){show(html,b);});b.addEventListener('click',function(){show(html,b);});});
-c.addEventListener('mouseleave',reset);
 });
 })();
 (function(){var rows=document.querySelectorAll('#helprows .hrow'),wrap=document.getElementById('helprows'),panel=document.getElementById('helppanel'),pk=document.getElementById('pk'),pl=document.getElementById('pl'),pf=document.getElementById('pf');if(!panel)return;
@@ -551,9 +632,7 @@ var D=[
 {k:'How it gets done',l:['A Genie space on gold tables with instructions that actually work.','UAT run instruction by instruction, defects fed back into the model.','Delivered where people are, Teams, not a new tool to learn.','A cost model so finance knows what it costs and what it saves.'],f:'For teams who want self service that gives the same answer as the dashboard.'},
 {k:'How it gets done',l:['Unity Catalog laid out by environment and layer.','Row level visibility instead of duplicate tables.','Dev, UAT and prod promotion through pull requests and CI.','Formal sign off before production, every time.'],f:'For teams where prod gets edited by hand and nobody is sure who can see what.'},
 {k:'How it gets done',l:['The manual process timed, step by step, with the people doing it.','A cost of bad data number leadership can act on.','A root cause that does not blame the people filling in the fields.','A two page case that gets the fix funded.'],f:'For teams who know the data is bad but cannot get budget to fix it.'}];
-function set(d){panel.classList.remove('swap');void panel.offsetWidth;panel.classList.add('swap');pk.textContent=d.k;pl.innerHTML=d.l.map(function(x){return '<li>'+x+'</li>';}).join('');pf.textContent=d.f;}
-rows.forEach(function(r){r.addEventListener('mouseenter',function(){rows.forEach(function(x){x.classList.remove('on');});r.classList.add('on');wrap.classList.add('dim');panel.classList.add('hot');set(D[+r.dataset.k]);});r.addEventListener('click',function(){r.dispatchEvent(new Event('mouseenter'));});});
-wrap.addEventListener('mouseleave',function(){rows.forEach(function(x){x.classList.remove('on');});wrap.classList.remove('dim');panel.classList.remove('hot');set(base);});
+rows.forEach(function(r){var d=D[+r.dataset.k];var u=document.createElement('div');u.className='how';u.innerHTML='<span>How it gets done</span><ul>'+d.l.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul><small>'+d.f+'</small>';r.appendChild(u);});
 })();
 
 (function(){var L=document.getElementById('loader'),v=document.getElementById('vid'),done=false;function go(){if(done)return;done=true;setTimeout(function(){L.classList.add('off');},400);}

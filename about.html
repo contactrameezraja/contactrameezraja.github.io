@@ -82,6 +82,29 @@ nav li.cta a{border-color:var(--ink);color:var(--ink);padding:8px 14px}
 .bio .pin .photo{float:none;width:100%;margin:0;border:0;display:block}
 @media(max-width:900px){.bio .pin{float:none;margin:8px 0 26px 8px;max-width:240px;width:70%}.bio .pin .photo{max-width:none}}
 @media(orientation:landscape){header .wrap{max-width:none;padding:0 4vw}}
+:root{--bg:#f5f4ef;--ink:#131313;--mute:#57554f;--soft:#ffffff;--line:rgba(0,0,0,.13);--accent:#cf1a72}
+header{--ink:#f2f1ec;--mute:#9a9892;--line:rgba(255,255,255,.12);background:rgba(10,10,11,.92);color:var(--ink)}
+body{font-weight:400}
+html{scroll-padding-top:88px}
+.pane{display:block;margin-top:64px}
+#p-bio{display:none}
+.sec{font-size:clamp(28px,3.4vw,40px);font-weight:300;letter-spacing:-.02em;margin-bottom:18px}
+.bio p{color:#26251f;text-align:left}
+.xp ul{color:#33322e}
+.xp .deep .lead{color:var(--ink)}
+.tab:hover{border-color:rgba(0,0,0,.45);color:var(--ink)}
+#cv.tab{background:var(--ink);color:#fff;border-color:var(--ink)}
+.aside .blk a{border-bottom:1px solid rgba(0,0,0,.4)}
+.aside .big:hover{color:var(--accent)}
+.bio .pin{background:#fff;box-shadow:0 14px 30px rgba(0,0,0,.18),0 2px 4px rgba(0,0,0,.12)}
+.bio .pin::before{background:radial-gradient(circle at 35% 30%,#ff8cc6,#e0218a 55%,#8f1257);box-shadow:0 3px 5px rgba(0,0,0,.3)}
+.gate form{background:#fff}
+.gate input{background:#fff}
+.gate input:focus{border-color:rgba(0,0,0,.5)}
+.gate button[type=submit]{background:var(--ink);color:#fff}
+nav li a{white-space:nowrap}
+@media(max-width:480px){nav ul{gap:2px}nav li a{font-size:12px;padding:8px 5px}nav li.cta a{padding:7px 10px}}
+.bio p,.xp .lead,.xp .note{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 </style>
 </head>
 <body>
@@ -109,15 +132,14 @@ nav li.cta a{border-color:var(--ink);color:var(--ink);padding:8px 14px}
       </div>
 
       <div class="tabs" id="tabs">
-        <button class="tab on" data-p="bio">Biography</button>
-        <button class="tab" data-p="xp">Experience</button>
-        <button class="tab" data-p="edu">Education</button>
+        <a class="tab" href="#p-xp">Experience</a>
+        <a class="tab" href="#p-edu">Education</a>
         <a class="tab" href="#" id="cv">Résumé ↓</a>
       </div>
 
       <div class="pane on" id="p-bio"></div>
 
-      <div class="pane xp" id="p-xp">
+      <div class="pane xp" id="p-xp"><h3 class="sec">Experience</h3>
         <div class="row deep"><span class="d">MAY 2026 – OCT 2026</span><div><h4>Senior Data Analytics Engineer, Databricks AI/ML</h4><div class="c">Shell Energy · London</div>
           <p class="lead">Five European markets, five different Salesforces, one Customer 360 on Databricks. Half the job was the data, the other half was getting people to use it.</p>
           <ul>
@@ -149,7 +171,7 @@ nav li.cta a{border-color:var(--ink);color:var(--ink);padding:8px 14px}
         <div class="row"><span class="d">2014 – 2018</span><div><h4>Data Associate, then BI Engineer</h4><div class="c">DLL Group, part of Rabobank</div></div></div>
       </div>
 
-      <div class="pane" id="p-edu"><ul class="list">
+      <div class="pane" id="p-edu"><h3 class="sec">Education</h3><ul class="list">
         <li>BSc Mathematics<small>The Open University</small></li>
         <li>MSc Predictive Modelling and Scientific Computing<small>University of Warwick</small></li>
       </ul></div>
